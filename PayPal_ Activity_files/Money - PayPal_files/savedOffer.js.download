@@ -1,0 +1,1 @@
+define(["jquery","backbone","BaseView"],function(e,t,n){"use strict";return n.extend({el:"#savedOffers",template:"money/inc/savedOffers",model:new t.Model,initialize:function(e){},beforeRender:function(){}})});

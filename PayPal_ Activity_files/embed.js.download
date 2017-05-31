@@ -1,0 +1,761 @@
+var PaypalSitewideSearch =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmory imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmory exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		Object.defineProperty(exports, name, {
+/******/ 			configurable: false,
+/******/ 			enumerable: true,
+/******/ 			get: getter
+/******/ 		});
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/search/";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports.create = create;
+
+var _tinyEmitter = __webpack_require__(1);
+
+var _tinyEmitter2 = _interopRequireDefault(_tinyEmitter);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint consumerweb/no-indexof: 0 */
+/**
+ * Provides a messaging interface.
+ * @param {string} id - Unique string ID for filtering postmessages across a global channel.
+ * @param {Window} sender - The current window. Will dispatch messages via `onmessage`.
+ * @param {Window} recipient - A window which messenger#send will dispatch messages to.
+ *
+ * @return {Messenger} An EventEmitter with a `send` method that dispatches to the remote recipient.
+ *
+ */
+
+
+var EmitterWithSend = function (_Emitter) {
+	_inherits(EmitterWithSend, _Emitter);
+
+	function EmitterWithSend(id, recipient) {
+		var commonData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+		_classCallCheck(this, EmitterWithSend);
+
+		var _this = _possibleConstructorReturn(this, (EmitterWithSend.__proto__ || Object.getPrototypeOf(EmitterWithSend)).call(this));
+
+		_this.setRecipient(recipient);
+		_this.messengerId = id;
+		_this.commonData = commonData;
+		return _this;
+	}
+
+	_createClass(EmitterWithSend, [{
+		key: 'setRecipient',
+		value: function setRecipient(recipient) {
+			this.messageRecipient = recipient;
+		}
+		// Send an event across realms (windows), to be emitted as an event by another window's messenger.
+
+	}, {
+		key: 'send',
+		value: function send(name, message, recipient) {
+			var data = JSON.stringify(_extends({}, this.commonData, message || {}));
+			(recipient || this.messageRecipient).postMessage(this.messengerId + name + data, '*');
+		}
+	}]);
+
+	return EmitterWithSend;
+}(_tinyEmitter2.default);
+
+function create(_ref) {
+	var id = _ref.id,
+	    sender = _ref.sender,
+	    recipient = _ref.recipient,
+	    commonData = _ref.commonData;
+
+	// The `id` links two messengers together across realms.
+	function isMyEvent(_ref2) {
+		var data = _ref2.data;
+
+		return data && typeof data === 'string' && data.indexOf(id) === 0;
+	}
+	var emitter = new EmitterWithSend(id, recipient || sender.top, commonData);
+	function dispatchFromSender(event) {
+		// Break the very simple serialized event format id + name + json into parts and deserialize.
+		if (isMyEvent(event)) {
+			var match = event.data.substring(id.length).match(/^[^\{\[]+/);
+			var name = match && match[0];
+			if (name) {
+				if (false) {
+					console.log('[Messenger] got "' + name + '" event');
+				}
+				var json = event.data.substring(id.length + name.length);
+				var data = void 0;
+				try {
+					if (json.length > 0) {
+						data = JSON.parse(json);
+					}
+				} catch (e) {
+					throw Error('[Messenger] Unable to parse message: ' + event.data);
+				}
+				emitter.emit(name, data);
+			}
+		}
+	}
+	sender.addEventListener('message', dispatchFromSender);
+	emitter.dispose = function () {
+		return sender.removeEventListener('message', dispatchFromSender);
+	};
+	return emitter;
+}
+
+exports.default = create;
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+function E () {
+  // Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+}
+
+E.prototype = {
+  on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
+
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
+
+    return this;
+  },
+
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    };
+
+    listener._ = callback
+    return this.on(name, listener, ctx);
+  },
+
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
+
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
+
+    return this;
+  },
+
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
+
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
+
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
+
+    return this;
+  }
+};
+
+module.exports = E;
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+var _messenger = __webpack_require__(0);
+
+var _messenger2 = _interopRequireDefault(_messenger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Fallback for when a `trafficSource` parameter was not passed to the client factory.
+ * TODO: replace with code that actually detects what app we're in based on its URL and a table
+ * of known PP app locations.
+ */
+function detectTrafficSource() {
+	return 'default-traffic-source';
+}
+
+/**
+ * Fallback for when a `customer` parameter was not passed to the client factory.
+ * Looks for global customer information in the most common globally accessible places.
+ */
+/* global SCRIPT_PATHS */
+/* eslint consumerweb/no-indexof: 0, max-statements: 0, no-console: 1 */
+/**
+ * Embedder library for the sitewide search experience. Embeds iframes with search in them,
+ * and exposes a simple API for opening them, closing them, and subscribing to their events.
+ *
+ * Designed to be extremely lightweight and beginner-friendly. Avoid importing too many deps.
+ * Should be framework-agnostic and browser-feature-agnostic.
+ *
+ * Webpack is configured to export the client factory as a global variable PaypalSitewideSearch.
+ */
+function detectCustomer() {
+	return window.fpti && window.fpti.cust || window.s && window.s.prop6 || window.PAYPAL && window.PAYPAL.opinionLabVars && window.PAYPAL.opinionLabVars.accountNumber;
+}
+
+// Unique ID counter for creating multiple frames.
+var ids = 0;
+
+// Shortcut to frequently-used document object.
+var doc = window.document;
+
+/**
+ * Paths injected by Webpack, so that this script can always use regexp and query selectors
+ * to find the script tag that loaded it.
+ */
+var paths = ["js/embed.js","js/embed.min.js"];
+var scriptREStrings = paths.map(function (path) {
+	return path.replace(/\./g, '\\.');
+});
+var scriptQuery = paths.map(function (path) {
+	return 'script[src*="' + path + '"]';
+}).join(',');
+var scriptRE = RegExp('(' + scriptREStrings.join('|') + ').*');
+var globalCallbackName = 'onPaypalSearchLoad';
+var defaultUrl = '';
+
+/**
+ * Use regexp and query selectors to find the script tag that loaded this! We use the URL of the
+ * script tag to find the base URL of the search iframe. The tag also may contain miscellaneous
+ * load-time configuration. Currently, the only option that can be defined on the script tag itself
+ * is the name of the global callback, but that may change in the future.
+ *
+ * 1. Look for the `data-paypal-sitewide-search` attribute recommended by the docs
+ * 2. Look for any script tag whose src contains the known SCRIPT_PATHS of this library
+ * 	  (which are injected by Webpack)
+ * 3. Check for a custom callback name defined on the script tag and replace the global callback
+ *    name to be checked, if necessary.
+ */
+var thisScript = doc.querySelector('script[data-paypal-sitewide-search]') || doc.querySelector(scriptQuery);
+if (thisScript) {
+	defaultUrl = thisScript.getAttribute('src').replace(scriptRE, '');
+	var customCallback = thisScript.getAttribute('data-callback');
+	if (customCallback) {
+		globalCallbackName = customCallback;
+	}
+}
+// Length of fade transition for search UI open/close, in milliseconds.
+var fadeTimeout = 200;
+// Length of time to wait for search frame to load before giving up and firing error event.
+// TODO: environment-specific load timeouts
+var loadTimeout = 30000;
+var defaults = {
+	// URL to be set as the src attribute of the <iframe> element.
+	url: defaultUrl,
+	// CSS to be applied to <iframe> element.
+	frameStyle: {
+		position: 'fixed',
+		top: '0',
+		opacity: 0,
+		transition: 'opacity ' + fadeTimeout / 1000 + 's',
+		left: '-99999px',
+		width: '100%',
+		height: '100%',
+		borderWidth: '0',
+		zIndex: '1000'
+	},
+	// Attributes to be applied to <iframe> element.
+	frameAttrs: {
+		allowtransparency: true,
+		frameborder: '0'
+	},
+	urlParams: function urlParams() {
+		return {};
+	},
+
+	detectPosition: true,
+	closeOnChose: true,
+	lazyLoad: false
+};
+
+/**
+ * Super simple 2-layer object merge.
+ * Better than an Object.assign polyfill taking up space here.
+ */
+function merge(first, overwriteWith) {
+	var out = {};
+	var key = void 0;
+	for (key in first) {
+		if (first.hasOwnProperty(key)) {
+			out[key] = first[key];
+		}
+	}
+	for (key in overwriteWith) {
+		if (overwriteWith.hasOwnProperty(key)) {
+			out[key] = overwriteWith[key];
+		}
+	}
+	return out;
+}
+
+/**
+ * Super simple URL parameter serializer. Takes a base URL and an object, and adds a query string.
+ */
+function addUrlParams(url, params) {
+	var base = url + (url.indexOf('?') === -1 ? '?' : '&');
+	var query = [];
+	for (var key in params) {
+		if (params.hasOwnProperty(key) && typeof params[key] !== 'undefined') {
+			query.push(key + '=' + params[key]);
+		}
+	}
+	return base + query.join('&');
+}
+
+/**
+ * Returns a no-op function that logs a warning if called. Used to create replacements for all api
+ * methods when `api.dispose()` is called, so that a disposed API object will log warnings if you
+ * call any of its methods. Useful for debugging.
+ */
+function disposeWarning(method, id) {
+	return function warnDisposed() {
+		var error = Error('"' + method + '" called on disposed PaypalSitewideSearch object ' + id);
+
+		/* eslint-disable no-console */
+		if (console.warn) {
+			return console.warn(error);
+		}
+		if (console.error) {
+			return console.error(error);
+		}
+		return console.log(error);
+
+		/* eslint-enable no-console */
+	};
+}
+
+/**
+ * The constructor of the PaypalSitewideSearch API.
+ *
+ * @param {Object} options Options for API behavior.
+ *
+ * @returns {Object} A live API object.
+ *
+ * Uses a "revealed module" pattern instead of a prototype pattern. This is better for privacy:
+ * rather than "hidden " _prefixed properties for private members, this API has all its private
+ * variables trapped in a local closure. We achieve this by constructing the entire API object in
+ * this factory method
+ *
+ * The downside is that this is much less memory-efficient than a prototype, but this object is
+ * lightweight and there is almost never a need to create more than one.
+ */
+function PaypalSitewideSearch(options) {
+
+	var frame = void 0;
+	var config = merge(defaults, options);
+	// frameAttrs and frameStyle get individually merged, but everything else gets overwritten
+	if (options && options.frameAttrs) {
+		config.frameAttrs = merge(defaults.frameAttrs, options.frameAttrs);
+	}
+	if (options && options.frameStyle) {
+		config.frameStyle = merge(defaults.frameStyle, options.frameStyle);
+	}
+
+	/**
+  * Unique string ID, necessary for filtering the window.postMessage channel that other scripts
+  * might be using.
+  */
+	var id = '__PAYPALSITEWIDESEARCH__' + ++ids;
+
+	// Fill in likely default values for trafficSource.
+	var trafficSource = options.trafficSource || detectTrafficSource();
+	var customer = options.customer || detectCustomer();
+
+	// Create api object that will be populated with methods and then returned.
+	var api = {};
+
+	/**
+  * Create the `.events` bus for the API object using an injected factory method.
+  * Originally, this was a simple assignment: `api.events = messenger(...)`. However, to enable
+  * testing and hot module replacement, I made this factory proxy so that the hot module handling
+  * code at the bottom of this file can replace the event bus in live objects.
+  */
+	function createMessenger(factory) {
+		if (api.events) {
+			api.events.dispose();
+		}
+		api.events = factory({ id: id, sender: window, commonData: { trafficSource: trafficSource, customer: customer } });
+		if (false) {
+			Object.keys(createMessenger.__handlers).forEach(function (hid) {
+				var handler = createMessenger.__handlers[hid];
+				api.events.on(handler.event, handler.fn);
+			});
+		}
+	}
+
+	if (false) {
+		// Expose a private method for the hot module replacement code to replace the messenger.
+		api.__createMessenger = createMessenger;
+
+		/**
+   * Create a local cache for all subscribed methods. Put it on `createMessenger` because only
+   * `createMessenger` will ever need to use it.
+   */
+		createMessenger.__handlers = {};
+		createMessenger.__handlerIds = 0;
+	}
+
+	// By default, create a messenger with the `messenger` module.
+	createMessenger(_messenger2.default);
+
+	// Shortcut to dispatch events to our own event bus as if they came from the remote window.
+	function sendSelf(type, data) {
+		api.events.send(type, data, window);
+	}
+
+	/**
+  * Helper method to make the convenience methods for the API, like `onLoad`.
+  * Can be deprecated in a future release, if everyone likes the `api.events.on('name')` style
+  * better.
+  *
+  * Returns an `unsubscribe` function that unsubscribes the handler without needing access to the
+  * original event bus.
+  *
+  * In dev mode, also includes a secret `__resubscribe` method for reconstructing event buses
+  * after a file change. All the `module.hot` code is only for dev mode; Webpack strips it for
+  * production.
+  */
+	function subscriptionFactory(type) {
+		return function (fn) {
+			function subscribe() {
+				api.events.on(type, fn);
+				if (false) {
+					createMessenger.__handlers[unsubscribe.__id] = { type: type, fn: fn };
+				}
+			}
+			function unsubscribe() {
+				api.events.off(type, fn);
+				if (false) {
+					delete createMessenger.__handlers[unsubscribe.__id];
+				}
+			}
+			if (false) {
+				createMessenger.__handlerIds += 1;
+				unsubscribe.__id = 'h' + createMessenger.__handlerIds;
+				unsubscribe.__resubscribe = subscribe;
+			}
+			subscribe();
+			return unsubscribe;
+		};
+	}
+
+	/**
+  * Make the friendly API that subscribes to events.
+  * Can perhaps be deprecated in the future, though it does return nice objects with an
+  * `unsubscribe` method.
+  */
+	api.onEscapeKey = subscriptionFactory('escapekey');
+	api.onClickClose = subscriptionFactory('clickclose');
+	api.onClickAway = subscriptionFactory('clickaway');
+	api.onSelect = subscriptionFactory('select');
+	api.onError = subscriptionFactory('error');
+	api.onLoad = subscriptionFactory('load');
+	api.onOpen = subscriptionFactory('open');
+	api.onClose = subscriptionFactory('close');
+	api.onSelfHelpSearch = subscriptionFactory('selfhelpsearch');
+
+	// Internal per-instance flags to allow for asynchronous running of `.load()` and `.open()`.
+	var frameLoaded = false;
+	var queuedOpen = false;
+	var loadTimeoutRef = void 0;
+
+	/**
+  * Create the iframe, append it to the document, and set its src to the sitewidesearchnodeweb URL,
+  * allowing it to load.
+  *
+  * Checks the `queuedOpen` flag to see if it's been set to a DOM event from the past.
+  * If `queuedOpen` exists, this method also runs `api.open` with the queued event. This enables
+  * async calling of `.load()` and `.open()`.
+  */
+	var load = api.load = function load(overrides) {
+		clearTimeout(loadTimeoutRef);
+		frame = doc.createElement('iframe');
+		frame.onload = function () {
+			clearTimeout(loadTimeoutRef);
+			api.events.setRecipient(frame.contentWindow);
+			frameLoaded = true;
+			if (queuedOpen) {
+				api.open(queuedOpen);
+				queuedOpen = false;
+			}
+			sendSelf('load');
+		};
+		var frameStyle = config.frameStyle;
+		var frameAttrs = config.frameAttrs;
+		var url = config.url;
+		var src = addUrlParams(url, merge(config.urlParams(), {
+			id: id,
+			trafficSource: trafficSource,
+			customer: customer,
+			headerHeight: config.headerHeight
+		}, overrides || {}));
+		for (var rule in frameStyle) {
+			if (frameStyle.hasOwnProperty(rule)) {
+				frame.style[rule] = frameStyle[rule];
+			}
+		}
+		for (var attr in frameAttrs) {
+			if (frameAttrs.hasOwnProperty(attr)) {
+				frame.setAttribute(attr, frameAttrs[attr]);
+			}
+		}
+		frame.name = id;
+		frame.setAttribute('src', src);
+		doc.body.appendChild(frame);
+
+		// Now that frame is appended, time it to make sure it doesn't take forever.'
+		loadTimeoutRef = setTimeout(function () {
+			if (!frameLoaded) {
+				sendSelf('error', {
+					message: 'Search frame took over ' + loadTimeout / 1000 + 's to load.'
+				});
+				doc.body.removeChild(frame);
+				frame = null;
+			}
+		}, loadTimeout);
+	};
+
+	/**
+  * Open the search frame and display it to the user.
+  *
+  * If this method is called before `load()` was ever called, it will call `load()`. (It detects
+  * this by looking to see if `load()` has assigned the `frame` variable in the local closure to
+  * an iframe element.)
+  *
+  * If this method is called after `load()` was called, it will set the `queuedOpen` flag to its
+  * associated DOM event, which will trigger another call to `api.open` when the frame is ready.
+  */
+	api.open = function open(event) {
+		if (!frame) {
+			load();
+		}
+		if (!frameLoaded) {
+			queuedOpen = event || true;
+			return;
+		}
+		var pos = false;
+		if (event && event.target && config.detectPosition) {
+			var rect = event.target.getBoundingClientRect();
+			pos = [rect.left + rect.width / 2, rect.top + rect.height];
+			// Position the frame so that its top edge is below the element clicked on.
+			frame.style.top = pos[1] + 'px';
+		}
+		sendSelf('open');
+		// Bring frame into view by removing huge offset.
+		frame.style.left = '0';
+		// Tell frame to gain user input focus.
+		api.events.send('focus', pos);
+		// Fade frame in; the CSS `transition` property should ensure that this line of code is all
+		// that is necessary to do the fade.
+		frame.style.opacity = 1;
+		if (frame.contentWindow && frame.contentWindow.focus) {
+			// In Firefox, an iframe does not capure keyboard control until you `.focus()` the window itself.
+			frame.contentWindow.focus();
+		}
+	};
+
+	var close = api.close = function close() {
+		// Fade frame out; see above.
+		frame.style.opacity = 0;
+
+		/**
+   * Once frame is faded out, position it so it's out of the way of mouse events.
+   * Also, tell it to clear out focus and remove any entered query by sending the `reset` event.
+   */
+		setTimeout(function () {
+			api.events.send('reset');
+			frame.style.left = '-9999px';
+			sendSelf('close');
+		}, fadeTimeout);
+	};
+
+	/**
+  * Disable this API object, remove its connections to the DOM and its event subscriptions.
+  * It should be garbage collected in the next pass, provided you do not retain any references to
+  * it. You should never have to manually run this: it's mostly provided for hot module replacement
+  * in dev mode, but it's certainly possible that some future framework would want to use many
+  * API objects, and would need to destroy some.
+  */
+	api.dispose = function dispose() {
+		doc.body.removeChild(frame);
+		api.events.dispose();
+		frame = null;
+		frameLoaded = false;
+		api.disposed = true;
+		for (var method in api) {
+			if (api.hasOwnProperty(method) && typeof api[method] === 'function') {
+				api[method] = disposeWarning(method, id);
+			}
+		}
+		for (var unsub in api.subscriptions) {
+			api.subscriptions[unsub]();
+		}
+		api.subscriptions = {};
+		api.events = null;
+	};
+
+	/**
+  * Create a public subscriptions list. These are on the API object so the user can unsubscribe
+  * them if she wants to.
+  */
+
+	api.subscriptions = {};
+
+	// Subscribe the dfeault subscriptions.
+	if (config.closeOnChose) {
+		api.subscriptions.closeOnSelect = api.onSelect(close);
+	}
+	api.subscriptions.closeOnEscapeKey = api.onEscapeKey(close);
+	api.subscriptions.closeOnCloseButton = api.onClickClose(close);
+	api.subscriptions.closeOnClickAway = api.onClickAway(close);
+
+	if (!config.lazyLoad) {
+		load();
+	}
+
+	if (false) {
+		// Track this instance so it can be recreated if the file is edited and it invalidates.
+		PaypalSitewideSearch.__instances.push(api);
+	}
+
+	return api;
+}
+
+module.exports = PaypalSitewideSearch;
+
+if (false) {
+	/* eslint-disable no-console */
+	// tell webpack we can handle changes to this file
+	module.hot.accept();
+	// gotta keep track of instances so we can refresh them
+	PaypalSitewideSearch.__instances = [];
+	// before reloading this file...
+	module.hot.dispose(function () {
+		console.log('embed.js updated; disposing PaypalSitewideSearch instances before reinit');
+		PaypalSitewideSearch.__instances.forEach(function (instance) {
+			return instance.dispose();
+		});
+		PaypalSitewideSearch.__instances = [];
+	});
+	// if messenger, the single dependency we have, reloads...
+	module.hot.accept('./helpers/messenger', function () {
+		var newMsngrFac = require('./helpers/messenger').default;
+		console.log('messenger.js updated; recreating PaypalSitewideSearch instance event buses');
+		// each instance recreates its messenger and resubscribes events
+		PaypalSitewideSearch.__instances.forEach(function (instance) {
+			return instance.__createMessenger(newMsngrFac);
+		});
+	});
+
+	/* eslint-enable no-console */
+}
+
+// If someone has registered a global callback, call it.
+if (typeof window[globalCallbackName] === 'function') {
+	window[globalCallbackName](PaypalSitewideSearch);
+}
+
+/***/ }
+/******/ ]);

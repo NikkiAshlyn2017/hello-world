@@ -1,0 +1,233 @@
+/* workarounds */
+* html .ui-autocomplete {
+  width: 1px;
+}
+/* without this, the menu expands to 100% in IE6 */
+/*
+ * jQuery UI Menu @VERSION
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu .ui-menu {
+  margin-top: -3px;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+  font-weight: normal;
+  margin: -1px;
+  color: red;
+}
+.mer-search-icon {
+  float: left;
+  margin: 5px 15px 4px 0;
+}
+.mer-search-icon .mer-header-search-icon {
+  color: #2c2e2f;
+  line-height: 0.9em;
+}
+.mer-search-icon .mer-header-search-icon:hover {
+  color: #003087;
+}
+.mer-search-icon .mer-header-search-icon:active {
+  color: #0070ba;
+}
+#mer-search-wrapper {
+  border-top: 1px solid #e5e5e5;
+  font-family: PayPal-Sans, sans-serif;
+  font-size: 13px;
+  color: #666;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  margin-top: 74px;
+  display: none;
+  min-height: 200px;
+}
+#mer-search-wrapper .mer-search-inner-wrapper {
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: auto;
+  width: 100%;
+}
+#mer-search-wrapper .mer-search-inner-wrapper .mer-search-input-wrapper {
+  margin: 0 auto;
+  max-width: 1190px;
+  padding: 15px 10px;
+}
+#mer-search-wrapper .mer-search-inner-wrapper .mer-search-input-wrapper .search-label {
+  display: inline-block;
+  float: right;
+  margin: 3px 0 0 5px;
+  width: auto;
+  text-align: right;
+}
+.mer-inner-search-icon {
+  float: left;
+  font-size: 30px;
+  height: 20px;
+  margin: 10px 0 0 -5px;
+}
+/* scroll results */
+.ui-autocomplete-input {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  font-family: PayPal-Sans, sans-serif;
+  font-size: 14px;
+  height: 28px;
+  max-height: 250px;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-left: 5px;
+  width: 85%;
+  position: relative;
+}
+.ui-autocomplete {
+  background-color: #fff;
+  border: none;
+  cursor: default;
+  display: block;
+  line-height: 30px;
+  list-style: outside none none;
+  margin: 20px 0 0;
+  overflow: auto;
+  padding: 7px 6px 14px;
+  position: absolute;
+  width: 180px;
+  z-index: 1000;
+}
+.ui-autocomplete .ui-menu-item {
+  background: none;
+  border: none;
+  font-family: PayPal-Sans, sans-serif;
+  font-size: 14px;
+  clear: left;
+  float: left;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  zoom: 1;
+}
+.ui-autocomplete .ui-menu-item a {
+  color: #2c2e2f;
+  text-decoration: none;
+  display: block;
+  line-height: 28px;
+  padding: 0.2em .4em;
+  zoom: 1;
+}
+.ui-state-focus,
+.ui-state-hover,
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+  background: none;
+  border: none;
+  font-weight: bold;
+  outline: none;
+}
+.ui-helper-hidden-accessible {
+  display: none;
+}
+.search-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #000000;
+}
+.search-overlay.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.search-overlay.in {
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+.mer-search-quick-links {
+  background-color: #F7F9FA;
+  font-family: PayPal-Sans, sans-serif;
+  margin: 0 auto;
+  padding: 18px 10px 10px 30px;
+  max-width: 1170px;
+}
+.mer-search-quick-links .quick-links-title {
+  color: #9B9B9B;
+  font-size: 11px;
+}
+.mer-search-quick-links ul {
+  list-style: outside none none;
+  margin-top: 5px;
+  padding: 0px;
+}
+.mer-search-quick-links ul li {
+  color: #6C7378;
+  line-height: 34px;
+  margin: 0;
+  padding: 0;
+}
+.mer-search-quick-links ul a {
+  color: #6C7378;
+  font-family: PayPal-Sans, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+}
+.mer-search-quick-links ul a:hover,
+.mer-search-quick-links ul a:focus {
+  text-decoration: underline;
+}
+.searchLoading {
+  background: transparent url(https://www.paypalobjects.com/webstatic/i/ex_ce2/icon/icon_loadingGraphic_42x42_2011_10_24.gif) no-repeat right center;
+  background-size: 20px 20px;
+  float: left;
+  height: 20px;
+  width: 28px;
+  position: relative;
+  top: 4px;
+  right: 9px;
+}
+@media only screen and (max-width: 414px) {
+  #mer-search-wrapper .mer-search-inner-wrapper {
+    padding: 10px 5px;
+  }
+  #mer-search-wrapper .mer-search-inner-wrapper .mer-search-input-wrapper {
+    width: 100%;
+  }
+  #mer-search-wrapper .mer-search-inner-wrapper .mer-search-input-wrapper .search-label {
+    margin-right: 10px;
+  }
+  .mer-search-quick-links {
+    padding: 20px 0px 20px 36px;
+  }
+  .ui-autocomplete-input {
+    width: 49%;
+  }
+}
+@media only screen and (max-width: 1169px) and (min-width: 416px) {
+  #mer-search-wrapper .mer-search-inner-wrapper {
+    padding: 10px 5px;
+  }
+  #mer-search-wrapper .mer-search-inner-wrapper .mer-search-input-wrapper {
+    width: 100%;
+  }
+  .mer-search-quick-links {
+    padding: 20px 0px 20px 38px;
+  }
+  .ui-autocomplete-input {
+    width: 65%;
+  }
+}

@@ -1,0 +1,1 @@
+define(["backbone","model/card"],function(e,t){"use strict";var n=e.Collection.extend({model:t,initialize:function(){},comparator:function(e){},parse:function(e,t){return e},url:function(){return e.history.options.root+"money?_mode=json"}});return new n});

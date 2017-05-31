@@ -1,0 +1,1 @@
+define(["jquery","backbone","BaseView"],function(e,t,n){"use strict";return n.extend({el:".modalView",template:"money/inc/requstIncreaseSubmitted",initialize:function(e){this.model=e},beforeRender:function(){},serialize:function(){return{appealDetails:this.model}}})});

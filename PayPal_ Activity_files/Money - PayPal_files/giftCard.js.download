@@ -1,0 +1,1 @@
+define(["backbone"],function(e){"use strict";var t=e.Model.extend({initialize:function(){},defaults:{},parse:function(e,t){return e},urlRoot:function(){return e.history.options.root+"money/giftcards"}});return t});

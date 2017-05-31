@@ -1,0 +1,1 @@
+define(["backbone"],function(e){"use strict";var t=e.Model.extend({initialize:function(){},defaults:{},parse:function(e,t){var n=e&&e.data||{};return n},urlRoot:function(){return e.history.options.root+"money?_mode=json"}});return t});

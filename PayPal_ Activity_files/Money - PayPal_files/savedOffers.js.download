@@ -1,0 +1,1 @@
+define(["backbone","model/savedOffer"],function(e,t){"use strict";return e.Collection.extend({url:function(){return e.history.options.root+"money/savedOffer/"+this.model.get("fiId")},model:t,parse:function(e){return e}})});

@@ -1,0 +1,4470 @@
+/**
+ * @fileOverview Activity contains styles for activity section
+ * @name activity
+ * @author tbroussard, nnursalim, mdaveshah, dquock, swesthafer
+ */
+/**
+ * @fileOverview Variables contains variables
+ * @name Variables
+ * @author hdoan, mdaveshah, ziliu
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ */
+/* Font sizes */
+/* Inputs */
+/** old styles **/
+/****************/
+/* Colors */
+/* button colors */
+/* New color variables from Adam Dustan's Patterns sheet: https://ebay.box.com/s/apis0xukrp25jzdvjyky */
+/* engagement module colors, named via http://chir.ag/projects/name-that-color */
+/* info / warning icon colors */
+/* generic colors for colors except text like box-border, shadow, background */
+/* card colors */
+/* textColor for all the colors of text */
+/* font weights */
+/* Z-index list */
+/* user for a bird's eye view of components based on z-axis */
+/* for example, if you want to put a button in header, just assign z-index of that button to @zindexHeader */
+/* these will overwrite the bootstrap pre defined variables */
+/* TODO: check the clean the non-needed modal styles in bootstrap */
+/* the same as bootstrap one, just overwrite */
+/* Setting for Sidepanel */
+/* This is not used by all side panels, only for the default one */
+/* what about larger phones like gs3? what about phablets like the note?
+/* responsive breakpoints */
+/* borders */
+/* Image Paths */
+/* Image URIs */
+/* Navigation */
+/* Activity */
+/* send money */
+/* data uri for notification */
+/* wallet */
+/* shop static landing page */
+/* feedback icon */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/**
+ * @fileOverview Mixins contains mixins
+ * @name Mixins
+ * @author hdoan, mdaveshah
+ * @tested browsers FF 12, Chrome 18, Safari 5 on Mac
+ * Please do not modify Mixins to add IE related styles.
+ */
+.ltrInput {
+  text-align: left;
+  /*! @noflip */
+  direction: ltr;
+}
+.ltrInputGroup {
+  /*! @noflip */
+  text-align: left;
+  /*! @noflip */
+  direction: ltr;
+}
+.enforceLtr {
+  /*! @noflip */
+  direction: ltr;
+  unicode-bidi: embed;
+}
+.overflow-auto {
+  overflow: auto;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/**
+ *  Multi-line truncation utilizing overflow:hidden and specified height of content
+ *  http://www.mobify.com/blog/multiline-ellipsis-in-pure-css/
+ *
+ *  @height - height of content to cut off
+ *  @lineheight - spacing between lines
+ *  @ellipsiswidth - width of ellipsis area
+ */
+/**
+ *	Vertical separator with radial box shadow right
+ *	@width - width of vertical separator
+ *	@height1 - height of first darker box shadow
+ *	@height2 - height of second lighter box shadow (taller than first height)
+ *	@top1 - top position of first box shadow
+ *	@top2 - top position of second box shadow
+ *	@right - right position of separator
+ *	@z - z-index of separator
+ *	@borderRadius - how radial the box shadow is
+ */
+/**
+ *	Horizontal separator with radial box shadow down
+ *	@height - height of horizontal separator
+ *	@width1 - width of first darker box shadow
+ *	@width2 - width of second lighter box shadow (longer than first width)
+ *	@left1 - left position of first box shadow
+ *	@left2 - left position of second box shadow
+ *	@bottom - bottom position of separator
+ *	@z - z-index of separator
+ *	@borderRadius - how radial the box shadow is
+ */
+/* This mixin is to add a pointer to a dropdown */
+/* mixin for creating a triangle */
+/* Mixin for bubbles */
+/* mixin for creating carets bubbles with a border */
+/* mixins for creating caret for customSelectBtn */
+/*  START SPINNER  */
+/* DEFAULT USAGE: add .hasSpinner classes (in app.less) to the elements that we want to have an overlay and spinner graphic on top of */
+/* Applies to Modals and other DIV elements: Apply this mixin selectively to other CSS properties to avoid duplication of CSS code */
+/* Just use .spinner() to apply spinner, or along with .overlay() to add overlay behind spinner and block the user interaction on the DIV */
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes revrotation {
+  from {
+    -webkit-transform: rotate(0deg) scaleX(-1);
+    transform: rotate(0deg) scaleX(-1);
+  }
+  to {
+    -webkit-transform: rotate(359deg) scaleX(-1);
+    transform: rotate(359deg) scaleX(-1);
+  }
+}
+@-moz-keyframes revrotation {
+  from {
+    -moz-transform: rotate(0deg) scaleX(-1);
+    transform: rotate(0deg) scaleX(-1);
+  }
+  to {
+    -moz-transform: rotate(359deg) scaleX(-1);
+    transform: rotate(359deg) scaleX(-1);
+  }
+}
+@-o-keyframes revrotation {
+  from {
+    -o-transform: rotate(0deg) scaleX(-1);
+    transform: rotate(0deg) scaleX(-1);
+  }
+  to {
+    -o-transform: rotate(359deg) scaleX(-1);
+    transform: rotate(359deg) scaleX(-1);
+  }
+}
+@keyframes revrotation {
+  from {
+    transform: rotate(0deg) scaleX(-1);
+  }
+  to {
+    transform: rotate(359deg) scaleX(-1);
+  }
+}
+/*  END SPINNER  */
+/* mixin to create flat white button (iOS7 style) */
+.flatBtn {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: #ffffff;
+  -moz-box-shadow: 0 1px 3px #cccccc;
+  -webkit-box-shadow: 0 1px 3px #cccccc;
+  box-shadow: 0 1px 3px #cccccc;
+  background-color: #faf9f9;
+  background-image: -moz-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fffefe), to(#f3f2f2));
+  background-image: -webkit-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: -o-linear-gradient(top, #fffefe, #f3f2f2);
+  background-image: linear-gradient(to bottom, #fffefe, #f3f2f2);
+  background-image: -webkit-linear-gradient(top, #fffefe 0%, #f3f2f2 100%);
+  background-image: -o-linear-gradient(top, #fffefe 0%, #f3f2f2 100%);
+  background-image: linear-gradient(to bottom, #fffefe 0%, #f3f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffffefe', endColorstr='#fff3f2f2', GradientType=0);
+}
+/**
+ * The following are just the overrides for TWBS
+ */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.dropup,
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle:focus {
+  outline: 0;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #337ab7;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #777777;
+}
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.open > .dropdown-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777777;
+  white-space: nowrap;
+}
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+  content: "";
+}
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+@media (min-width: 768px) {
+  .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+  .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto;
+  }
+}
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.42857143;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  font-size: 14px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.popover.top {
+  margin-top: -10px;
+}
+.popover.right {
+  margin-left: 10px;
+}
+.popover.bottom {
+  margin-top: 10px;
+}
+.popover.left {
+  margin-left: -10px;
+}
+.popover-title {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+.popover-content {
+  padding: 9px 14px;
+}
+.popover > .arrow,
+.popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.popover > .arrow {
+  border-width: 11px;
+}
+.popover > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+.popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+.popover.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: #ffffff;
+}
+.popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+.popover.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: #ffffff;
+}
+.popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+.popover.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+.popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+.popover.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: #ffffff;
+  bottom: -10px;
+}
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.42857143;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  font-size: 12px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.tooltip.in {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+.tooltip.top {
+  margin-top: -3px;
+  padding: 5px 0;
+}
+.tooltip.right {
+  margin-left: 3px;
+  padding: 0 5px;
+}
+.tooltip.bottom {
+  margin-top: 3px;
+  padding: 5px 0;
+}
+.tooltip.left {
+  margin-left: -3px;
+  padding: 0 5px;
+}
+.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #000000;
+  border-radius: 4px;
+}
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+.tooltip.top-left .tooltip-arrow {
+  bottom: 0;
+  right: 5px;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+.tooltip.top-right .tooltip-arrow {
+  bottom: 0;
+  left: 5px;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000000;
+}
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000000;
+}
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000000;
+}
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+.tooltip.bottom-left .tooltip-arrow {
+  top: 0;
+  right: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+.tooltip.bottom-right .tooltip-arrow {
+  top: 0;
+  left: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000000;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* Setting these elements to height of 100% ensures that
+ * .vx_foreground-container fully covers the whole viewport
+ */
+html,
+body {
+  height: 100%;
+}
+/* This wraps the foreground or main part of the app.
+ * It's purpose is to provide the "front" layer of the app and
+ * allow the "back" layer to exist behind it.
+ */
+.vx_foreground-container {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 800;
+  background: #f5f7fa;
+  -webkit-transition: left 250ms, right 250ms;
+  -moz-transition: left 250ms, right 250ms;
+  -ms-transition: left 250ms, right 250ms;
+  -o-transition: left 250ms, right 250ms;
+  transition: left 250ms, right 250ms;
+}
+.vx_mainContent {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 72px 0 9rem;
+  position: relative;
+}
+.vx_a11yText,
+.screenreader-only {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .vx_hidden-phone {
+    display: none !important;
+  }
+  .vx_foreground-container {
+    width: 100%;
+    min-height: 100%;
+  }
+  .vx_mainContent {
+    padding-top: 0;
+  }
+}
+/**
+ * @fileOverview Contains type treatment for PayPal's new VX Patterns
+ * @name type-vxPtrn
+ * @author jlowery
+ * @notes The below styles are mobile first
+ */
+body {
+  font-size: inherit !important;
+  font-family: 'PayPal-Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+.vx_text-xl {
+  font-size: 3.75rem;
+  line-height: 1.1;
+  font-weight: 200;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+h1,
+.vx_text-1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 200;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+h2,
+.vx_text-2 {
+  font-size: 1.875rem;
+  line-height: 1.4;
+  font-weight: 300;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+h3,
+.vx_text-3 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+.vx_text-3_lighter {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 300;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+h4,
+.vx_text-4 {
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+h5,
+.vx_text-5 {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 500;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_text-5_lighter {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+h6,
+.vx_text-6 {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 500;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_text-6_lighter {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_text-body,
+p,
+li,
+dd,
+dt,
+label,
+input,
+textarea,
+pre,
+code {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_text-body_secondary {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_text-legal {
+  font-size: 0.8125rem;
+  line-height: 1.38461538;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  color: #6c7378;
+  letter-spacing: 0.05em;
+}
+.vx_h1,
+.vx_h2,
+.vx_h3,
+.vx_h4 {
+  -webkit-font-smoothing: antialiased;
+}
+.vx_h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 200;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+.vx_h2 {
+  /* Yes, the below H3 vars are intended
+	* this is the mobile sizing, so it's this first.
+	* Desktop is below.
+	*/
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 300;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+  /* Mobile First, aka Desktop Later */
+}
+@media (min-width: 768px) {
+  .vx_h2 {
+    font-size: 1.875rem;
+    line-height: 1.4;
+    font-weight: 300;
+    text-transform: none;
+    font-family: 'PayPal-Sans-Big', sans-serif;
+  }
+}
+.vx_h3 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans-Big', sans-serif;
+}
+.vx_h4 {
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+.vx_h5 {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 500;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_h6 {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 500;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_h7 {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_base-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_small-text {
+  font-size: 0.8125rem;
+  line-height: 1.84615385;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+.vx_legal-text {
+  font-size: 0.8125rem;
+  line-height: 1.38461538;
+  font-weight: 400;
+  text-transform: none;
+  font-family: 'PayPal-Sans', sans-serif;
+  color: #6c7378;
+  letter-spacing: 0.05em;
+}
+.vx_secondary-text {
+  color: #9da3a6;
+}
+.vx_text-block {
+  padding: 1.6em 1.6em 0.8em;
+}
+.vx_reverse-contrast {
+  background: #2c2e2f;
+  color: #ffffff;
+}
+.vx_reverse-contrast .vx_secondary-text {
+  color: #cbd2d6;
+}
+.vx_reverse-contrast .small-text {
+  font-weight: 500;
+}
+ul,
+ol {
+  padding: 0;
+  margin: 0 0 0.8rem 25px;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+li {
+  line-height: 1.6;
+}
+dl {
+  margin-bottom: 1.6rem;
+}
+dt,
+dd {
+  line-height: 1.6;
+}
+dt {
+  font-weight: 500;
+}
+dd {
+  margin-left: 0.8rem;
+}
+.vx_unstyled-list {
+  list-style: none;
+  padding: 0;
+}
+a,
+a:visited {
+  color: #0070ba;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+a:active,
+a:focus,
+a:hover {
+  color: #005ea6;
+  text-decoration: underline;
+}
+p > a,
+li > a {
+  font-weight: 500;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+/**
+ * THIS ICONS COMPONENT IS BEING DEPRECATED. USE THE ICONOGRAPHY COMPONENT INSTEAD.
+ * DO NOT EDIT THIS FILE AS IT'S GENERATED CODE.
+ * UED: cgrigson, adustin, nvandewater
+ * UIE: jlowery
+ * Note: If modifications are needed, don't modify this file! Either override or make a PR to:
+ * https://github.paypal.com/jlowery/paypal-vxpattern-lib
+*/
+@font-face {
+  font-family: 'paypal-vx-icons';
+  src: url('https://www.paypalobjects.com/ui-web/vx-icons/2-0-1/PayPalVXIcons-Regular.eot');
+  src: url('https://www.paypalobjects.com/ui-web/vx-icons/2-0-1/PayPalVXIcons-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('https://www.paypalobjects.com/ui-web/vx-icons/2-0-1/PayPalVXIcons-Regular.woff') format('woff'), /* Modern Browsers */ url('https://www.paypalobjects.com/ui-web/vx-icons/2-0-1/PayPalVXIcons-Regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('https://www.paypalobjects.com/ui-web/vx-icons/2-0-1/PayPalVXIcons-Regular.svg#69ac2c9fc1e0803e59e06e93859bed03') format('svg');
+  font-style: normal;
+  font-weight: 400;
+  
+  /* IE9 Compat Modes */
+  /* Legacy iOS */
+}
+.icon {
+  font-family: 'paypal-vx-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 0;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-small:before {
+  font-size: 1.58rem;
+}
+.icon-medium:before {
+  font-size: 2.6rem;
+}
+.icon-large:before {
+  font-size: 7.8rem;
+}
+.icon-burger-small:before {
+  content: "\e000";
+}
+.icon-slider-small:before {
+  content: "\e001";
+}
+.icon-slider-half-small:before {
+  content: "\e002";
+}
+.icon-close-small:before {
+  content: "\e003";
+}
+.icon-add-small:before {
+  content: "\e004";
+}
+.icon-arrow-down-small:before {
+  content: "\e005";
+}
+.icon-arrow-up-small:before {
+  content: "\e006";
+}
+.icon-arrow-left-small:before {
+  content: "\e007";
+}
+.icon-arrow-right-small:before {
+  content: "\e008";
+}
+.icon-arrow-down-half-small:before {
+  content: "\e009";
+}
+.icon-arrow-up-half-small:before {
+  content: "\e010";
+}
+.icon-arrow-left-half-small:before {
+  content: "\e011";
+}
+.icon-arrow-right-half-small:before {
+  content: "\e012";
+}
+.icon-clear-half-small:before {
+  content: "\e013";
+}
+.icon-checkmark-small:before {
+  content: "\e014";
+}
+.icon-checkmark-small-bold:before {
+  content: "\e015";
+}
+.icon-action-arrow-half-small:before {
+  content: "\e016";
+}
+.icon-tooltip-outline-small:before {
+  content: "\e017";
+}
+.icon-tooltip-small:before {
+  content: "\e018";
+}
+.icon-info-small:before {
+  content: "\e019";
+}
+.icon-positive-small:before {
+  content: "\e020";
+}
+.icon-attention-small:before {
+  content: "\e021";
+}
+.icon-critical-small:before {
+  content: "\e022";
+}
+.icon-info-large:before {
+  content: "\e023";
+}
+.icon-positive-large:before {
+  content: "\e024";
+}
+.icon-attention-large:before {
+  content: "\e025";
+}
+.icon-critical-large:before {
+  content: "\e026";
+}
+.icon-pp-logo:before {
+  content: "\e029";
+}
+.icon-notification-small:before {
+  content: "\e039";
+}
+.icon-settings-small:before {
+  content: "\e040";
+}
+.icon-search-small:before {
+  content: "\e064";
+}
+/* Styles for checkbox widget */
+.vx_checkbox,
+.vx_radio {
+  width: 100%;
+  position: relative;
+}
+.vx_checkbox input,
+.vx_radio input {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+.vx_checkbox input:focus + label:before,
+.vx_radio input:focus + label:before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.vx_checkbox input:checked + label:before,
+.vx_radio input:checked + label:before {
+  content: "\e015";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-color: #0092d1;
+  color: #ffffff;
+  background-color: #0092d1;
+}
+.vx_checkbox label,
+.vx_radio label {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 2em;
+}
+.vx_checkbox label:before,
+.vx_radio label:before {
+  font-family: 'paypal-vx-icons';
+  display: inline-block;
+  vertical-align: top;
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 12px 0 0;
+  padding: 0.4em 0.1em;
+  border: 1px solid #2c2e2f;
+  content: '';
+  font-size: 25px;
+  line-height: 0;
+  border-radius: 2px;
+}
+.vx_checkbox.vx_has-error input:checked + label:before,
+.vx_radio.vx_has-error input:checked + label:before {
+  border-color: #d20000;
+  background: #d20000;
+}
+.vx_checkbox.vx_has-error label:before,
+.vx_radio.vx_has-error label:before {
+  border-color: #d20000;
+}
+.vx_checkbox.vx_has-error:after,
+.vx_radio.vx_has-error:after {
+  font-family: 'paypal-vx-icons';
+  display: inline-block;
+  vertical-align: middle;
+  content: "\e022";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.75em;
+  line-height: 0;
+  position: relative;
+  top: -3px;
+  padding-left: 5px;
+}
+.vx_checkbox.vx_is-disabled,
+.vx_radio.vx_is-disabled {
+  cursor: not-allowed;
+}
+.vx_checkbox.vx_is-disabled input:checked + label:before,
+.vx_radio.vx_is-disabled input:checked + label:before {
+  border-color: #6c7378;
+  background: #6c7378;
+}
+.vx_checkbox.vx_is-disabled label:before,
+.vx_radio.vx_is-disabled label:before {
+  border-color: #6c7378;
+  cursor: not-allowed;
+}
+.vx_checkbox.vx_is-disabled label,
+.vx_radio.vx_is-disabled label {
+  color: #6c7378;
+  cursor: not-allowed;
+}
+.vx_radio input:checked + label:before {
+  content: '';
+  border-color: #0092d1;
+  background-color: #0092d1;
+  box-shadow: inset 0 0 0 5px #ffffff;
+}
+.vx_radio label:before {
+  border-radius: 100%;
+}
+/*
+* @name buttons
+* @description All defined button styles and states belong here, including any helper class button style options, like `vx_btn-secondary` or `vx_btn-medium` etc.
+*
+* @group elements
+*/
+.vx_btn,
+.vx_btn-small,
+.vx_btn-medium {
+  display: inline-block;
+  min-width: 6rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #0070ba;
+  border-radius: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #0070ba;
+  transition: all 250ms ease;
+  -webkit-font-smoothing: antialiased;
+}
+.vx_btn:visited,
+.vx_btn-small:visited,
+.vx_btn-medium:visited,
+.vx_btn:active,
+.vx_btn-small:active,
+.vx_btn-medium:active,
+.vx_btn:hover,
+.vx_btn-small:hover,
+.vx_btn-medium:hover,
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  color: #ffffff;
+}
+.vx_btn:visited,
+.vx_btn-small:visited,
+.vx_btn-medium:visited {
+  text-decoration: none;
+}
+.vx_btn:hover,
+.vx_btn-small:hover,
+.vx_btn-medium:hover,
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  background-color: #003087;
+  border: 1px solid #003087;
+  box-shadow: none;
+  text-decoration: none;
+}
+.vx_btn:focus,
+.vx_btn-small:focus,
+.vx_btn-medium:focus {
+  outline: none;
+  text-decoration: underline;
+}
+.vx_btn[disabled],
+.vx_btn-small[disabled],
+.vx_btn-medium[disabled],
+.vx_btn[disabled]:hover,
+.vx_btn-small[disabled]:hover,
+.vx_btn-medium[disabled]:hover,
+.vx_btn[disabled]:active,
+.vx_btn-small[disabled]:active,
+.vx_btn-medium[disabled]:active,
+.vx_btn.vx_is-disabled,
+.vx_btn-small.vx_is-disabled,
+.vx_btn-medium.vx_is-disabled,
+.vx_btn.vx_is-disabled:hover,
+.vx_btn-small.vx_is-disabled:hover,
+.vx_btn-medium.vx_is-disabled:hover,
+.vx_btn.vx_is-disabled:active,
+.vx_btn-small.vx_is-disabled:active,
+.vx_btn-medium.vx_is-disabled:active {
+  color: #cbd2d6;
+  background: #f5f6f8;
+  box-shadow: none;
+  border: 1px solid #cbd2d6;
+  text-decoration: none;
+  cursor: not-allowed;
+  outline: none;
+  -ms-transform: none;
+  -webkit-transform: none;
+  transform: none;
+}
+.vx_btn + .vx_btn,
+.vx_btn + .vx_btn-small,
+.vx_btn + .vx_btn-medium,
+.vx_btn-small + .vx_btn,
+.vx_btn-small + .vx_btn-small,
+.vx_btn-small + .vx_btn-medium,
+.vx_btn-medium + .vx_btn,
+.vx_btn-medium + .vx_btn-small,
+.vx_btn-medium + .vx_btn-medium {
+  margin-left: 0.75rem;
+}
+.vx_btn.vx_btn-block,
+.vx_btn-small.vx_btn-block,
+.vx_btn-medium.vx_btn-block {
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}
+.vx_btn-secondary {
+  background-color: transparent;
+  border-color: #0070ba;
+  color: #0070ba;
+}
+.vx_btn-secondary:hover,
+.vx_btn-secondary:focus {
+  color: #003087;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #003087;
+  box-shadow: 0 0 0 1px #003087 inset;
+}
+.vx_btn-secondary:visited {
+  text-decoration: none;
+  color: #0070ba;
+}
+.vx_btn_reversed {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #0070ba;
+}
+.vx_btn_reversed:hover,
+.vx_btn_reversed:focus {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  color: #003087;
+}
+.vx_btn-secondary_reversed {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.vx_btn-secondary_reversed:hover,
+.vx_btn-secondary_reversed:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px #ffffff inset;
+}
+.vx_btn-medium {
+  font-size: 0.8125rem;
+  line-height: 1.38461538;
+  min-width: 4.5rem;
+  padding: 0.5625rem 1.125rem;
+}
+.vx_btn-small {
+  font-size: 0.8125rem;
+  line-height: 1.36363636;
+  min-width: 3.75rem;
+  padding: 0.46875rem 0.9375rem;
+}
+.vx_btn-icon {
+  display: inline-block;
+  width: 1.5rem;
+  position: relative;
+  margin-right: 0.625rem;
+}
+.vx_btn-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -1.125rem;
+  left: 0;
+}
+.vx_btn-icon .svg-stroke {
+  stroke: #ffffff;
+}
+.vx_btn-icon .svg-fill {
+  fill: #ffffff;
+}
+.vx_btn-secondary .vx_btn-icon .svg-stroke {
+  stroke: #0070ba;
+}
+.vx_btn-secondary .vx_btn-icon .svg-fill {
+  fill: #0070ba;
+}
+.vx_btn-secondary:hover .vx_btn-icon .svg-stroke,
+.vx_btn-secondary:focus .vx_btn-icon .svg-stroke {
+  stroke: #003087;
+}
+.vx_btn-secondary:hover .vx_btn-icon .svg-fill,
+.vx_btn-secondary:focus .vx_btn-icon .svg-fill {
+  fill: #003087;
+}
+[disabled] .vx_btn-icon .svg-stroke,
+[disabled]:hover .vx_btn-icon .svg-stroke,
+[disabled]:active .vx_btn-icon .svg-stroke,
+.vx_is-disabled .vx_btn-icon .svg-stroke,
+.vx_is-disabled:hover .vx_btn-icon .svg-stroke,
+.vx_is-disabled:active .vx_btn-icon .svg-stroke {
+  stroke: #cbd2d6;
+}
+[disabled] .vx_btn-icon .svg-fill,
+[disabled]:hover .vx_btn-icon .svg-fill,
+[disabled]:active .vx_btn-icon .svg-fill,
+.vx_is-disabled .vx_btn-icon .svg-fill,
+.vx_is-disabled:hover .vx_btn-icon .svg-fill,
+.vx_is-disabled:active .vx_btn-icon .svg-fill {
+  fill: #cbd2d6;
+}
+.vx_btn-medium .vx_btn-icon {
+  width: 1.125rem;
+  margin-right: 0.5rem;
+}
+.vx_btn-medium .vx_btn-icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  top: -0.8125rem;
+}
+.vx_btn-small .vx_btn-icon {
+  width: 1.10795454rem;
+  margin-right: 0.375rem;
+}
+.vx_btn-small .vx_btn-icon svg {
+  width: 1.10795454rem;
+  height: 1.10795454rem;
+  top: -0.75rem;
+}
+.vx_btn-group,
+.vx_btn-group_stacked {
+  text-align: center;
+}
+.vx_btn-group_stacked .vx_btn,
+.vx_btn-group_stacked .vx_btn-small,
+.vx_btn-group_stacked .vx_btn-medium {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vx_addBtn-primary,
+.vx_addBtn-secondary {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  background: none;
+  border: none;
+  color: #0070ba;
+  padding-left: 0.125rem;
+}
+.vx_addBtn-primary:before,
+.vx_addBtn-secondary:before {
+  content: "\e004";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'paypal-vx-icons';
+  line-height: 0;
+  font-size: 1.25rem;
+}
+.vx_addBtn-primary:hover,
+.vx_addBtn-secondary:hover {
+  color: #005ea6;
+  text-decoration: none;
+}
+.vx_addBtn-primary:before {
+  color: #ffffff;
+  background: #0070ba;
+  border-radius: 100%;
+  padding: 0 5px 3px;
+  box-shadow: 0 1px 2px #2c2e2f;
+  margin-right: 12px;
+}
+.vx_addBtn-secondary:before {
+  margin-right: 5px;
+}
+.vx_backBtn {
+  background: none;
+  border: none;
+  color: #0070ba;
+  font-weight: normal;
+  padding: 0;
+}
+.vx_backBtn:focus,
+.vx_backBtn:active,
+.vx_backBtn:hover {
+  color: #005ea6;
+  text-decoration: none;
+}
+.vx_backBtn:focus span,
+.vx_backBtn:active span,
+.vx_backBtn:hover span {
+  text-decoration: underline;
+}
+.vx_backBtn:before {
+  font-family: 'paypal-vx-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\2190';
+  display: inline;
+  font-size: 1.5em;
+  vertical-align: -0.1em;
+  padding-right: 0.1em;
+}
+.vx_btn-twoUp .vx_btn {
+  display: inline-block;
+  width: 48%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.vx_btn-twoUp .vx_btn:first-of-type {
+  margin-right: 1.5%;
+}
+.vx_btn-twoUp .vx_btn:last-of-type {
+  margin-left: 1.5%;
+}
+@media (max-width: 768px) {
+  .vx_blocks-for-mobile .vx_btn {
+    display: block;
+    width: 100%;
+  }
+  .vx_blocks-for-mobile .vx_btn + .vx_btn {
+    margin: 5px 0 0;
+  }
+}
+.vx_btn-link {
+  background: none;
+  border: none;
+  color: #0070ba;
+  font-weight: 500;
+  padding: 0;
+}
+.vx_btn-link:hover {
+  color: #005ea6;
+  text-decoration: underline;
+}
+/**
+ * DO NOT EDIT THIS FILE AS IT'S GENERATED CODE.
+ * PLEASE NOTE: If you have specific icon needs, place them in your project's own Less file.
+*/
+/*
+ * Use this for local testing
+ *
+@font-face {
+	font-family: 'consumer-icons';
+
+	src: url('fonts/ConsumerIcons-Regular.eot');
+	src: url('fonts/ConsumerIcons-Regular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/ConsumerIcons-Regular.woff') format('woff'),
+		url('fonts/ConsumerIcons-Regular.ttf')  format('truetype'),
+		url('fonts/ConsumerIcons-Regular.svg#69ac2c9fc1e0803e59e06e93859bed03') format('svg');
+
+	font-style: normal;
+	font-weight: 400;
+} */
+/*
+ * Use this for production
+ *
+ */
+@font-face {
+  font-family: 'consumer-icons';
+  src: url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.eot');
+  src: url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.eot?#iefix') format('embedded-opentype'), url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.woff') format('woff'), url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.ttf') format('truetype'), url('https://www.paypalobjects.com/ui-web/iconfont-consumer/3-3-0/fonts/ConsumerIcons-Regular.svg#69ac2c9fc1e0803e59e06e93859bed03') format('svg');
+  font-style: normal;
+  font-weight: 400;
+}
+.icon {
+  font-family: 'consumer-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 0;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-small:before {
+  font-size: 1.58rem;
+}
+.icon-medium:before {
+  font-size: 2.6rem;
+}
+.icon-large:before {
+  font-size: 7.8rem;
+}
+.icon-burger-small:before {
+  content: "\e000";
+}
+.icon-slider-small:before {
+  content: "\e001";
+}
+.icon-slider-half-small:before {
+  content: "\e002";
+}
+.icon-close-small:before {
+  content: "\e003";
+}
+.icon-add-small:before {
+  content: "\e004";
+}
+.icon-arrow-down-small:before {
+  content: "\e005";
+}
+.icon-arrow-up-small:before {
+  content: "\e006";
+}
+.icon-arrow-left-small:before {
+  content: "\e007";
+}
+.icon-arrow-right-small:before {
+  content: "\e008";
+}
+.icon-arrow-down-half-small:before {
+  content: "\e009";
+}
+.icon-arrow-up-half-small:before {
+  content: "\e010";
+}
+.icon-arrow-left-half-small:before {
+  content: "\e011";
+}
+.icon-arrow-right-half-small:before {
+  content: "\e012";
+}
+.icon-clear-half-small:before {
+  content: "\e013";
+}
+.icon-checkmark-small:before {
+  content: "\e014";
+}
+.icon-checkmark-small-bold:before {
+  content: "\e015";
+}
+.icon-action-arrow-half-small:before {
+  content: "\e016";
+}
+.icon-tooltip-outline-small:before {
+  content: "\e017";
+}
+.icon-tooltip-small:before {
+  content: "\e018";
+}
+.icon-info-small:before {
+  content: "\e019";
+}
+.icon-positive-small:before {
+  content: "\e020";
+}
+.icon-attention-small:before {
+  content: "\e021";
+}
+.icon-critical-small:before {
+  content: "\e022";
+}
+.icon-info-large:before {
+  content: "\e023";
+}
+.icon-positive-large:before {
+  content: "\e024";
+}
+.icon-attention-large:before {
+  content: "\e025";
+}
+.icon-critical-large:before {
+  content: "\e026";
+}
+.icon-pp-logo:before {
+  content: "\e029";
+}
+.icon-visa-logo:before {
+  content: "\e030";
+}
+.icon-mastercard-logo:before {
+  content: "\e031";
+}
+.icon-maestro-logo:before {
+  content: "\e032";
+}
+.icon-amex-logo:before {
+  content: "\e033";
+}
+.icon-discover-logo:before {
+  content: "\e034";
+}
+.icon-card-half-solid:before {
+  content: "\e035";
+}
+.icon-bank-half-solid:before {
+  content: "\e036";
+}
+.icon-profile-large:before {
+  content: "\e037";
+}
+.icon-profile-add-large:before {
+  content: "\e038";
+}
+.icon-notification-small:before {
+  content: "\e039";
+}
+.icon-settings-small:before {
+  content: "\e040";
+}
+.icon-profile-small:before {
+  content: "\e041";
+}
+.icon-funnel-small:before {
+  content: "\e042";
+}
+.icon-delete-small:before {
+  content: "\e043";
+}
+.icon-edit-small:before {
+  content: "\e044";
+}
+.icon-lock-small:before {
+  content: "\e045";
+}
+.icon-pdf-small:before {
+  content: "\e046";
+}
+.icon-contact-small:before {
+  content: "\e047";
+}
+.icon-undo-small:before {
+  content: "\e048";
+}
+.icon-cancel-small:before {
+  content: "\e049";
+}
+.icon-simple-list-small:before {
+  content: "\e050";
+}
+.icon-detailed-list-small:before {
+  content: "\e051";
+}
+.icon-print-small:before {
+  content: "\e052";
+}
+.icon-camera-small:before {
+  content: "\e053";
+}
+.icon-info-outline-small:before {
+  content: "\e054";
+}
+.icon-us-dollar-outline-small:before {
+  content: "\e055";
+}
+.icon-calendar-half-small:before {
+  content: "\e056";
+}
+.icon-hiper-logo:before {
+  content: "\e057";
+}
+.icon-hipercard-logo:before {
+  content: "\e058";
+}
+.icon-elo-logo:before {
+  content: "\e059";
+}
+.icon-star-small:before {
+  content: "\e060";
+}
+.icon-jcb-logo:before {
+  content: "\e061";
+}
+.icon-attention-outline-small:before {
+  content: "\e062";
+}
+.icon-unionpay-logo:before {
+  content: "\e063";
+}
+.icon-search-small:before {
+  content: "\e064";
+}
+.icon-desktop-small:before {
+  content: "\e065";
+}
+.icon-mobile-small:before {
+  content: "\e066";
+}
+.icon-laptop-small:before {
+  content: "\e067";
+}
+.icon-tablet-small:before {
+  content: "\e068";
+}
+.icon-send-money:before {
+  content: "\e500";
+}
+.icon-request-money:before {
+  content: "\e501";
+}
+.icon-photo:before {
+  content: "\e502";
+}
+.icon-gift-cards:before {
+  content: "\e503";
+}
+.icon-credit-card:before {
+  content: "\e504";
+}
+.icon-truck:before {
+  content: "\e505";
+}
+.icon-email:before {
+  content: "\e506";
+}
+.icon-email-solid:before {
+  content: "\e507";
+}
+.icon-bank-check:before {
+  content: "\e508";
+}
+.icon-calendar:before {
+  content: "\e509";
+}
+.icon-holiday:before {
+  content: "\e510";
+}
+.icon-gift:before {
+  content: "\e511";
+}
+.icon-wallet:before {
+  content: "\e512";
+}
+.icon-play-video:before {
+  content: "\e513";
+}
+.icon-heart:before {
+  content: "\e514";
+}
+.icon-shield:before {
+  content: "\e515";
+}
+.icon-tunes:before {
+  content: "\e516";
+}
+.icon-invoice:before {
+  content: "\e517";
+}
+.icon-shopping-bag:before {
+  content: "\e518";
+}
+.icon-phone:before {
+  content: "\e519";
+}
+.icon-phone-solid:before {
+  content: "\e520";
+}
+.icon-tag:before {
+  content: "\e521";
+}
+.icon-delivery:before {
+  content: "\e522";
+}
+.icon-questionmark:before {
+  content: "\e523";
+}
+.icon-cut-coupons:before {
+  content: "\e524";
+}
+.icon-register:before {
+  content: "\e525";
+}
+.icon-house:before {
+  content: "\e526";
+}
+.icon-gift-card:before {
+  content: "\e527";
+}
+.icon-messages:before {
+  content: "\e528";
+}
+.icon-add-money:before {
+  content: "\e529";
+}
+.icon-send-check:before {
+  content: "\e530";
+}
+.icon-paypal-me:before {
+  content: "\e531";
+}
+.icon-pp-logo-outline:before {
+  content: "\e532";
+}
+.icon-money-bag:before {
+  content: "\e533";
+}
+.icon-chip-pin:before {
+  content: "\e534";
+}
+.icon-boleto-ready:before {
+  content: "\e535";
+}
+.icon-boleto-topup:before {
+  content: "\e536";
+}
+.icon-clock-pay:before {
+  content: "\e537";
+}
+.icon-speeding-cart:before {
+  content: "\e538";
+}
+.icon-international-transfer:before {
+  content: "\e539";
+}
+.filters-advancedSearch .popover {
+  display: table !important;
+  left: auto;
+  right: auto;
+  margin-left: 40px;
+  margin-right: -40px;
+  border-color: #0070ba;
+  margin-top: 10px;
+  box-shadow: none;
+  max-width: none;
+}
+.filters-advancedSearch .popover.bottom > .arrow {
+  margin-left: -55px;
+  border-bottom-color: #0070ba;
+}
+.filters-advancedSearch .popover.bottom > .arrow,
+.filters-advancedSearch .popover.bottom > .arrow:after {
+  bottom: 100%;
+  /*! @noflip */
+  left: 12%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  top: initial;
+}
+@media (max-width: 640px) {
+  .filters-advancedSearch .popover.bottom > .arrow,
+  .filters-advancedSearch .popover.bottom > .arrow:after {
+    display: none;
+  }
+}
+.filters-advancedSearch .popover.bottom > .arrow:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 22px;
+  /*! @noflip */
+  margin-left: -22px;
+  margin-bottom: -23px;
+}
+.filters-advancedSearch .popover.bottom > .arrow {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #0070ba;
+  border-width: 22px;
+  /*! @noflip */
+}
+.filters-advancedSearch .advancedSearch-txnTypeContainer,
+.filters-advancedSearch .advancedSearch-currencySelectorContainer {
+  display: table-cell;
+  margin: 10px 24px 10px 14px;
+}
+.filters-advancedSearch .advancedSearch-title,
+.filters-advancedSearch .advancedSearch-txnTypeMenu,
+.filters-advancedSearch .advancedSearch-currencySelectorMenu {
+  padding: 0 15px;
+}
+.filters-advancedSearch .advancedSearch-currencySelectorMenu {
+  border-left: 1px solid #f5f7fa;
+}
+.filters-advancedSearch .advancedSearch-title {
+  margin: 5px 0 10px 0;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.filters-advancedSearch .advancedSearch-radioInput {
+  display: none;
+}
+.filters-advancedSearch .advancedSearch-txnTypeOval {
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  height: 34px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  border: 1px solid #0070ba;
+  margin-bottom: 10px;
+  overflow: auto;
+  min-width: 180px;
+  color: #6c7378;
+  font-size: 0.8125rem;
+}
+@media (max-width: 640px) {
+  .filters-advancedSearch .advancedSearch-txnTypeOval {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+}
+.filters-advancedSearch .advancedSearch-txnTypeOval .advancedSearch-txnTypeOvalText {
+  padding: 0 20px;
+  cursor: pointer;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: 400;
+  line-height: 32px;
+  white-space: nowrap;
+}
+.filters-advancedSearch .advancedSearch-txnTypeOval:hover,
+.filters-advancedSearch .advancedSearch-txnTypeOvalActive {
+  background-color: #0070ba;
+}
+.filters-advancedSearch .advancedSearch-txnTypeOval:hover .advancedSearch-txnTypeOvalText,
+.filters-advancedSearch .advancedSearch-txnTypeOvalActive .advancedSearch-txnTypeOvalText {
+  color: #ffffff;
+}
+.filters-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 24px 0;
+  display: table;
+}
+@media (max-width: 640px) {
+  .filters-container {
+    padding: 0;
+  }
+}
+.filters-section {
+  display: table-cell;
+  vertical-align: middle;
+}
+.filters-section label {
+  margin-bottom: 0;
+}
+@media (max-width: 1024px) {
+  .filters-section {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+@media (max-width: 640px) {
+  .filters-section {
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+  }
+}
+.filters-form input[readonly] {
+  background-color: #ffffff;
+}
+.filters-advancedSearch,
+.filters-transactionType,
+.elasticSearch,
+.filters-date {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  padding-top: 0em;
+  font-family: "paypal-sans", "HelveticaNeue", "Helvetica Neue", helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #2c2e2f;
+  line-height: 1.2em;
+  border-color: #9da3a6;
+  background: #ffffff;
+}
+.filters-advancedSearchLink {
+  display: table-cell;
+  vertical-align: middle;
+}
+.filtersList-close {
+  width: 100%;
+  padding-bottom: 10px;
+}
+.filtersList-close span {
+  cursor: pointer;
+  float: right;
+  margin: 12px -4px 0 0;
+}
+.filterDropdown-main {
+  border: 0;
+  padding: 0;
+  height: 50px;
+  background-color: #f5f7fa;
+  font-size: 15px;
+}
+.filterDropdown-main .popover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.elasticSearch {
+  max-width: 274.8px;
+}
+.elasticSearch-field {
+  font-family: 'PayPalSansSmall-Regular', sans-serif;
+  font-weight: 500;
+  height: 46px !important;
+}
+@media (max-width: 640px) {
+  .filters-advancedSearch,
+  .filters-transactionType,
+  .filters-date,
+  .elasticSearch,
+  .filters-searchBtn {
+    display: block;
+    max-width: none;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+.filter-searchIcon {
+  cursor: pointer;
+  display: table-cell;
+  width: 42px;
+  border-left: 1px solid #9da3a6;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  padding-bottom: 4px;
+  color: #0070ba;
+}
+.filter-searchIcon:hover,
+.filter-searchIcon:active {
+  border-left: 1px solid #009cde;
+}
+.customDates-container {
+  display: table;
+  margin: 12px 0;
+  padding-top: 20px;
+}
+.customDates-shortcutGroup {
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+}
+.customDates-shortcut {
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box;
+  background-color: #b7bcbf;
+  padding: 0 10px 0 10px;
+  margin: 8px;
+  min-width: 8em;
+  font-size: 0.9em;
+  border-width: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 25px;
+  color: #2c2e2f;
+  text-decoration: none;
+}
+.customDates-shortcut:hover,
+.customDates-shortcut:active,
+.customDates-shortcut:focus,
+.customDates-shortcut.active {
+  background-color: #009cde;
+  text-decoration: none;
+  color: #ffffff;
+}
+.filters-overlayTrigger {
+  height: 41px;
+  width: 54px;
+  right: 12%;
+  display: inline-block !important;
+  position: absolute;
+  top: -54px;
+  z-index: 1030;
+  border-radius: 5px;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-width: 0;
+}
+.filters-overlayTrigger .icon {
+  width: 100%;
+  display: block;
+  color: #ffffff;
+  font-size: 2.0571428571428574em;
+  font-size: 2.25rem;
+  line-height: 1.0555555555555556em;
+  text-align: center;
+}
+.filters-overlayTrigger:hover,
+.filters-overlayTrigger:focus {
+  text-decoration: none;
+}
+.filters-searchButton {
+  right: 55px;
+}
+.filters-searchButton .icon,
+.filters-dateButton .icon {
+  position: relative;
+  bottom: 7px;
+}
+.filters-dateButton {
+  right: 13px;
+}
+.filters-datepicker {
+  position: relative;
+}
+.filters-date {
+  min-width: 200px;
+  max-width: 298px;
+}
+.customDates {
+  display: table;
+  padding-top: 0;
+  width: 100%;
+}
+.customDates-label,
+.elasticSearch-label {
+  position: absolute;
+  top: 4px;
+  font-size: 10px;
+  padding-left: 10px;
+  color: #0070ba;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.customDates-label:focus,
+.elasticSearch-label:focus {
+  outline: none;
+}
+.customDates-field.customDates-field.customDates-field {
+  font-family: 'PayPalSansSmall-Regular', sans-serif;
+  font-weight: 500;
+  line-height: 21px;
+  color: #2c2e2f;
+  padding: 16px 30px 4px 10px;
+  cursor: pointer;
+  height: 46px !important;
+}
+.customDates-field.customDates-field.customDates-field::-ms-clear {
+  display: none;
+}
+.customDates-field-mobile {
+  position: absolute;
+  top: 0;
+  display: none;
+  opacity: 0;
+  height: 0px;
+}
+.filters-startDate,
+.filters-endDate {
+  display: table-cell;
+  width: 50%;
+  cursor: text;
+}
+.filters-startDate.active,
+.filters-endDate.active {
+  box-shadow: 0 0 2px 2px #009cde;
+  z-index: 1;
+}
+.filters-startDate.mobileBorder,
+.filters-endDate.mobileBorder {
+  border-color: #9da3a6;
+}
+.filters-startDate {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+}
+.filters-startDate:hover {
+  border-right: 1px solid #009cde;
+}
+.filters-startDate:hover .customDates-icon {
+  right: 11px;
+}
+.filters-endDate {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  position: relative;
+}
+.filters-endDate:hover:before {
+  background-color: #009cde;
+}
+.filters-startDate:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0));
+  background-repeat: no-repeat;
+}
+.filters-endDate:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 1px;
+}
+.customDates-icon {
+  width: 20px;
+  height: 20px;
+  right: 12px;
+  bottom: 8px;
+  background: url('https://www.paypalobjects.com/webstatic/walletweb-engagement/Activity/Calendar_Icon2x.png') no-repeat;
+  background-size: contain;
+  position: absolute;
+  pointer-events: none;
+}
+/* Date Dropdown (Bootstrap 3) */
+.dateDropdown-toggle {
+  padding: 0 10px;
+  text-align: left;
+}
+.dateDropdown-toggle .caret {
+  float: right;
+  margin-top: 10px;
+}
+.dateDropdown-menu {
+  margin-top: -2px;
+  min-width: 200px;
+}
+@media (max-width: 640px) {
+  .dateDropdown-menu {
+    width: 100%;
+  }
+}
+.caret-design {
+  background: #009cde;
+  margin-left: 0.6cm;
+  font-weight: bold;
+}
+.dateDropdown-menu .active a,
+.dateDropdown-menu .active a:hover,
+.dateDropdown-menu .active a:focus {
+  background: #009cde;
+  font-weight: bold;
+}
+.dateDropdown-label {
+  padding-right: 6px;
+}
+/* Custom Dates Container */
+.customDate-container,
+.customDate-actions {
+  padding: 5px 15px 15px 15px;
+}
+.customDate-actions {
+  padding-top: 13px;
+  padding-bottom: 8px;
+}
+.customDate-saveBtn {
+  width: 100%;
+}
+.customDate-container input {
+  margin-bottom: 10px;
+  padding: 13px 8px 0;
+}
+.customDate-container label {
+  position: absolute;
+  top: 0px;
+  left: 8px;
+  -moz-transition: top 0.5s ease-in-out;
+  -ms-transition: top 0.5s ease-in-out;
+  -webkit-transition: top 0.5s ease-in-out;
+  -o-transition: top 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out;
+  font-weight: normal;
+}
+.customDate-container label.active {
+  color: #009cde;
+}
+.customDate-container label.dateLabel-empty {
+  top: 11px;
+}
+.customDate-inputGroup {
+  position: relative;
+  -moz-transition: margin-bottom 0.5s ease-in-out;
+  -ms-transition: margin-bottom 0.5s ease-in-out;
+  -webkit-transition: margin-bottom 0.5s ease-in-out;
+  -o-transition: margin-bottom 0.5s ease-in-out;
+  transition: margin-bottom 0.5s ease-in-out;
+}
+.customDate-inputGroup.hasError {
+  margin-bottom: 2.6em;
+}
+.customDate-inputGroup.hasError:before {
+  right: 4px;
+  bottom: 16px;
+}
+/* Overpanel style (mobile device only) */
+.theoverpanel .filters-form {
+  min-height: 25em;
+}
+.theoverpanel .filters-advancedSearch,
+.theoverpanel .filters-transactionType,
+.theoverpanel .elasticSearch,
+.theoverpanel .filters-date,
+.theoverpanel .filters-searchBtn {
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin-bottom: 1em;
+  background: transparent;
+}
+.customDates-mobileDatePicker {
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: inset 60px 0 50px -8px #ffffff, inset -60px 0 50px -8px #ffffff, inset 0 -8px 8px -8px #cbd2d6, inset 0 8px 8px -8px #cbd2d6;
+  margin-top: 1em;
+}
+@media (max-width: 640px) {
+  .date-picker-wrapper.inline-wrapper,
+  .month-wrapper.month-wrapper.month-wrapper {
+    background-color: transparent;
+  }
+  .month-wrapper table .day {
+    line-height: 18px;
+  }
+}
+/* Display Mode styles */
+.displayMode-container {
+  display: table-cell;
+  vertical-align: top;
+  padding-right: .5em;
+}
+@media (max-width: 1024px) {
+  .displayMode-container {
+    padding-right: 1em;
+  }
+}
+.displayMode-list {
+  margin: 10px 0 0 auto;
+  display: table;
+  border-collapse: collapse;
+  list-style: none;
+  text-align: right;
+}
+.displayMode-item {
+  min-width: 75px;
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+}
+.displayMode-btn {
+  padding: 10px 0.5em 7px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #6c7378;
+}
+.active .displayMode-btn {
+  padding-bottom: 5px;
+  color: #2c2e2f;
+}
+/* Display Mode modifiers */
+.icon_displayMode-item {
+  vertical-align: -0.1em;
+  margin-bottom: 0.75em;
+  display: block;
+}
+@media (max-width: 896px) {
+  .displayMode-list {
+    position: relative;
+  }
+  .displayMode-item {
+    display: table-row;
+    border-bottom: 1px solid #c5c5c5;
+  }
+  .displayMode-item:last-child {
+    border-bottom: none;
+  }
+  .icon_displayMode-item {
+    display: none;
+  }
+  .active .displayMode-btn {
+    border-bottom: none;
+    color: #009cde;
+  }
+}
+.messages-container {
+  margin-top: -20px;
+  margin-bottom: 15px;
+  height: auto;
+}
+.messageView {
+  width: 100%;
+  max-width: 1024px;
+  background: rgba(0, 0, 0, 0);
+}
+.messageView.resultCount-zero {
+  padding-bottom: 1.5em;
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  .messageView {
+    padding-top: 1.5em;
+  }
+}
+.message {
+  display: table-cell;
+}
+.resultCount-zero .message {
+  display: block;
+  margin-top: 24px;
+}
+.filterTagOval {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  height: 30px;
+  background-color: #f8f8f8;
+  border-radius: 25px;
+  border: 1px solid #0070ba;
+  margin: 15px 15px 10px 0px;
+  overflow: auto;
+}
+@media (max-width: 640px) {
+  .filterTagOval {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+}
+.selectedFilterTagText {
+  padding: 0 28px 0 20px;
+  color: #2c2e2f;
+  font-weight: 400;
+}
+.removeFilterTag {
+  cursor: pointer;
+  right: 18px;
+  width: 8px;
+  position: inherit;
+  float: right;
+  color: #0070ba;
+}
+.filter-close {
+  margin-top: -21px;
+  margin-right: 6px;
+}
+/**
+ * @fileOverview Styles for edit and cancel money request
+ * @name modify-request
+ * @author nnursalim
+ * @tested browsers Chrome 25+, FF 19+, Safari 6, IE8+
+ */
+/*
+ * this forces edit and cancel request modal to be in front of the grey backdrop
+*/
+body.modal-open .transaction {
+  position: absolute;
+  top: 0;
+}
+.editRequest,
+.cancelRequest {
+  font-size: 1.2em;
+}
+.editRequest h3,
+.cancelRequest h3 {
+  font-size: 1.4em;
+  text-align: center;
+}
+.editRequest .modal-body .field,
+.cancelRequest .modal-body .field {
+  margin: 1em auto;
+}
+.editRequest .modal-body .field span,
+.cancelRequest .modal-body .field span {
+  display: inline-block;
+}
+.editRequest .modal-body .field span:first-child,
+.cancelRequest .modal-body .field span:first-child {
+  width: 40%;
+  text-align: right;
+}
+.editRequest .modal-body .field span:last-child,
+.cancelRequest .modal-body .field span:last-child {
+  width: 50%;
+  padding-left: 20px;
+  text-align: left;
+}
+.editRequest .amount,
+.cancelRequest .amount,
+.editRequest .subject,
+.cancelRequest .subject,
+.editRequest .note,
+.cancelRequest .note {
+  padding-left: 20px;
+  display: inline-block;
+}
+.editRequest .amount input,
+.cancelRequest .amount input,
+.editRequest .subject input,
+.cancelRequest .subject input,
+.editRequest .note input,
+.cancelRequest .note input {
+  border-radius: 5px;
+}
+.editRequest .buttons,
+.cancelRequest .buttons {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+}
+.editRequest .sendEmail,
+.cancelRequest .sendEmail {
+  display: block;
+  text-align: center;
+}
+.editRequest .onOff label,
+.cancelRequest .onOff label {
+  display: inline-block;
+  font-size: 1em;
+}
+.editRequest .onoffswitch,
+.cancelRequest .onoffswitch {
+  display: inline-block;
+  margin: 10px;
+}
+/*** toggle switch ***/
+/* http://proto.io/freebies/onoff/ */
+.onOff {
+  width: 100%;
+  padding: 0.8em 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+.onOff > label {
+  margin: 0;
+  display: inline-block;
+  line-height: 35px;
+}
+.onoffswitch {
+  width: 80px;
+  margin: auto;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* enables checkbox keyboard usage */
+.onoffswitch input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+.onoffswitch input[type="checkbox"]:focus + .onoffswitch-label {
+  box-shadow: 0 0 3px 2px #0666b3;
+}
+.onoffswitch-label {
+  height: 34px;
+  margin: 0;
+  border: 2px solid;
+  border-color: #c5c5c5;
+  border-color: rgba(69, 69, 69, 0.14);
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+.onoffswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  display: inline-block;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -ms-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner .on,
+.onoffswitch-inner .off {
+  width: 44%;
+  height: 32px;
+  display: inline-block;
+  line-height: 32px;
+  font-weight: 600;
+  text-shadow: none;
+}
+.onoffswitch-inner .on {
+  padding-left: 0.5em;
+  background: #468427;
+  background: rgba(70, 132, 39, 0.8);
+  color: #ffffff;
+}
+.onoffswitch-inner .off {
+  text-align: right;
+  background-color: #cfcfcf;
+  background-image: -moz-linear-gradient(top, #c3c3c3, #e1e1e1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c3c3c3), to(#e1e1e1));
+  background-image: -webkit-linear-gradient(top, #c3c3c3, #e1e1e1);
+  background-image: -o-linear-gradient(top, #c3c3c3, #e1e1e1);
+  background-image: linear-gradient(to bottom, #c3c3c3, #e1e1e1);
+  background-image: -webkit-linear-gradient(top, #c3c3c3 0%, #e1e1e1 100%);
+  background-image: -o-linear-gradient(top, #c3c3c3 0%, #e1e1e1 100%);
+  background-image: linear-gradient(to bottom, #c3c3c3 0%, #e1e1e1 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc3c3c3', endColorstr='#ffe1e1e1', GradientType=0);
+  color: #333333;
+  text-shadow: 0 1px 1px #ffffff;
+}
+.onoffswitch-switch {
+  width: 33px;
+  height: 31px;
+  margin: 1px 0 0;
+  border: 1px solid;
+  border-color: #c5c5c5;
+  border-color: rgba(69, 69, 69, 0.14);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 46px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-transition: all 0.3s ease-in 0s;
+  -ms-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch input[type="checkbox"]:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch input[type="checkbox"]:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0;
+}
+/**
+ * @fileOverview Styles for the transaction detail inline
+ * @name Transaction
+ * @author tsullivan
+ */
+/**
+ * @fileOverview Shared styles for the transaction detail and summary installment detail
+ * @name sharedPanel
+ * @author tsullivan hkori
+ */
+.highlightTransactionRow,
+.highlightTransactionPanel,
+.highlightInstallmentRow,
+.highlightInstallmentPanel {
+  border-left: 4px solid #009cde;
+  margin-left: -4px;
+}
+.highlightTransactionPanel,
+.highlightInstallmentPanel {
+  background-color: #ffffff;
+  border-left-color: #50c7f9;
+  border-top: 1px solid #cbd2d6;
+  border-right: 1px solid #cbd2d6;
+  border-bottom: 1px solid #cbd2d6;
+  /* animation helper for cool slide-down of the transaction details panel */
+}
+.highlightTransactionPanel.panel-transition,
+.highlightInstallmentPanel.panel-transition {
+  -moz-transition: height 0.5s ease;
+  -ms-transition: height 0.5s ease;
+  -webkit-transition: height 0.5s ease;
+  -o-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  overflow: hidden;
+}
+.inlineTransactionDetails .icon-close-small.colorDefault,
+.installmentPanel-container .icon-close-small.colorDefault {
+  color: #2c2e2f;
+}
+.inlineTransactionDetails .closeIcon-container,
+.installmentPanel-container .closeIcon-container {
+  float: right;
+  margin-right: 1.4em;
+  width: 1.5em;
+}
+.inlineTransactionDetails .closeIcon-container a:hover,
+.installmentPanel-container .closeIcon-container a:hover {
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .inlineTransactionDetails .closeIcon-container,
+  .installmentPanel-container .closeIcon-container {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+@media (max-width: 768px) {
+  .inlineTransactionDetails,
+  .installmentPanel-container {
+    padding: 1em;
+  }
+}
+.fullpageTransactionDetails,
+.inlineTransactionDetails {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fullpageTransactionDetails.fullpageError,
+.inlineTransactionDetails.fullpageError {
+  max-width: none;
+}
+.fullpageTransactionDetails dl,
+.inlineTransactionDetails dl {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.fullpageTransactionDetails dt,
+.inlineTransactionDetails dt {
+  font-weight: 500;
+}
+.fullpageTransactionDetails dd,
+.inlineTransactionDetails dd {
+  word-wrap: break-word;
+  margin-left: 0;
+}
+.fullpageTransactionDetails footer,
+.inlineTransactionDetails footer {
+  padding-top: 1.5em;
+  padding-bottom: 4.5em;
+  border-top: 1px solid #eeeeee;
+}
+.fullpageTransactionDetails footer dl,
+.inlineTransactionDetails footer dl {
+  margin-bottom: 0;
+}
+.fullpageTransactionDetails footer ul,
+.inlineTransactionDetails footer ul {
+  margin-top: 1.4em;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  .fullpageTransactionDetails footer,
+  .inlineTransactionDetails footer {
+    padding-top: 1em;
+  }
+}
+.fullpageTransactionDetails p,
+.inlineTransactionDetails p,
+.fullpageTransactionDetails .tdStatusInfo,
+.inlineTransactionDetails .tdStatusInfo {
+  margin-bottom: 25px;
+}
+.fullpageTransactionDetails .lineBreak,
+.inlineTransactionDetails .lineBreak {
+  padding-bottom: 1em;
+}
+.fullpageTransactionDetails .numeral,
+.inlineTransactionDetails .numeral {
+  /*! @noflip */
+  direction: ltr;
+  white-space: nowrap;
+}
+.fullpageTransactionDetails .smallGray,
+.inlineTransactionDetails .smallGray {
+  color: #2c2e2f;
+}
+.fullpageTransactionDetails .icon-small,
+.inlineTransactionDetails .icon-small {
+  color: #cbd2d6;
+  background: #ffffff;
+}
+.fullpageTransactionDetails .vx_small-text .icon-small:before,
+.inlineTransactionDetails .vx_small-text .icon-small:before {
+  font-size: 1.4rem;
+}
+.fullpageTransactionDetails .marginTopContent,
+.inlineTransactionDetails .marginTopContent {
+  margin-top: 30px;
+}
+.fullpageTransactionDetails .italic,
+.inlineTransactionDetails .italic {
+  font-style: italic;
+}
+.fullpageTransactionDetails {
+  padding: 1em;
+  background-color: #ffffff;
+}
+.fullpageTransactionDetails .transactionDate {
+  margin-bottom: 0.25em;
+  font-weight: bold;
+}
+.fullpageTransactionDetails .breadcrumb,
+.fullpageTransactionDetails .transactionTopLevel {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.fullpageTransactionDetails .breadcrumb .icon {
+  color: #009cde;
+  vertical-align: sub;
+}
+.fullpageTransactionDetails .transactionTopLevel {
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #f5f7fa;
+}
+.fullpageTransactionDetails a.icon:hover {
+  text-decoration: none;
+}
+.fullpageTransactionDetails .transactionNetAmount {
+  float: right;
+  position: relative;
+  top: -1.25em;
+}
+.fullpageTransactionDetails .isCanceled {
+  text-decoration: line-through;
+}
+@media (max-width: 768px) {
+  .fullpageTransactionDetails .breadcrumb {
+    border-bottom: 1px solid #eeeeee;
+  }
+}
+@media print {
+  .fullpageTransactionDetails .transactionTopLevel {
+    padding-top: 6mm;
+    padding-bottom: 7mm;
+    border-color: #2c2e2f;
+  }
+  .fullpageTransactionDetails footer {
+    padding-top: 6mm;
+    border-color: #2c2e2f;
+  }
+  .fullpageTransactionDetails .row .halfColForPrint {
+    float: left;
+    margin-left: 0;
+    width: 48.5%;
+  }
+  .fullpageTransactionDetails .row .thirdOfColForPrint {
+    float: left;
+    margin-left: 0;
+    width: 32.3%;
+  }
+  .fullpageTransactionDetails .row .fullColForPrint {
+    float: none;
+    margin-left: 0;
+    width: 97%;
+  }
+}
+.inlineTransactionDetails {
+  margin-top: 25px;
+}
+.inlineTransactionDetails .closeIcon-container {
+  margin-top: -2px;
+}
+.inlineTransactionDetails .closeIcon-container:active {
+  text-decoration: none;
+}
+.inlineTransactionDetails-closeIcon {
+  display: inline-block;
+  padding-top: 4px;
+  margin-top: -4px;
+  text-decoration: none !important;
+}
+.tdPurchaseDetails .item {
+  margin-bottom: 20px;
+}
+.tdPurchaseDetails .numeral {
+  /*! @noflip */
+  text-align: right;
+}
+.tdPurchaseDetails .primary {
+  margin-top: 5px;
+  font-weight: 500;
+}
+.tdPurchaseDetails .purchaseDetailFields {
+  padding-top: 1em;
+}
+.phoneNumberSpace {
+  margin-left: 19px;
+}
+.tdDetailFieldsMain {
+  margin-top: 3px;
+  padding-top: 0.6em;
+  border-top: 1px solid #6c7378;
+}
+.tdRefundDetails .numeral {
+  /*! @noflip */
+  text-align: right;
+}
+.tdRefundDetails .primary {
+  margin-top: 5px;
+  font-weight: bold;
+}
+.tdFreeReturnShippingStackedLink {
+  margin-top: 4px;
+}
+.tdResCenterLinks li,
+.tdFreeReturnShippingLink li {
+  margin-bottom: 10px;
+  min-height: 1.4em;
+}
+.tdRefundLink .icon,
+.tdPrintLink .icon,
+.tdResCenterLinks .icon,
+.tdFreeReturnShippingLink .icon,
+.tdRefundLink .iconifiedText,
+.tdPrintLink .iconifiedText,
+.tdResCenterLinks .iconifiedText,
+.tdFreeReturnShippingLink .iconifiedText,
+.tdRefundLink a,
+.tdPrintLink a,
+.tdResCenterLinks a,
+.tdFreeReturnShippingLink a {
+  display: inline;
+}
+.tdRefundLink .icon,
+.tdPrintLink .icon,
+.tdResCenterLinks .icon,
+.tdFreeReturnShippingLink .icon {
+  line-height: 0.6em;
+}
+.tdRefundLink a,
+.tdPrintLink a,
+.tdResCenterLinks a,
+.tdFreeReturnShippingLink a,
+.tdRefundLink .iconifiedText,
+.tdPrintLink .iconifiedText,
+.tdResCenterLinks .iconifiedText,
+.tdFreeReturnShippingLink .iconifiedText {
+  margin-left: 10px;
+}
+.tdStatusInfo-icon,
+.action_status-info-icon,
+.tdStatusInfo-message,
+.action_status-info-msg {
+  display: table-cell;
+}
+.tdStatusInfo-icon,
+.action_status-info-icon {
+  width: 2.8em;
+}
+.tdInlineList {
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+.tdInlineList li {
+  list-style: none;
+  padding-right: 0.5em;
+}
+.tdInlineList li:first-child {
+  padding-left: 0;
+}
+.tdInlineList li:after {
+  content: '';
+  display: inline-block;
+  padding-left: 0.5em;
+  vertical-align: middle;
+  height: 0.9em;
+}
+.tdInlineList li:last-child:after {
+  border: none;
+}
+.tdInlineList:after {
+  content: '';
+  display: block;
+  clear: left;
+}
+.tdNoteText {
+  word-wrap: break-word;
+}
+.tdPosReturnPolicy {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid #eeeeee;
+}
+/* Error messages, when transaction could not be loaded */
+.tdInlineError .icon-critical-small {
+  color: #c72b2d;
+}
+/* fullScreenDialog customizations, for error scenario */
+/* in the smartphone experience, this is a server-side rendered overpanel */
+.tdErrorDialog .icon {
+  margin-top: 8px;
+  font-size: 90px;
+}
+.tdErrorDialog.notoverpanel {
+  margin-top: 80px;
+  /* top padding for non-smartphone fullpage */
+}
+.tdErrorDialog h2 {
+  margin-top: 0.7em;
+  margin-bottom: 10px;
+}
+.tdActions .vx_small-text .icon-small:before {
+  font-size: 1.4rem;
+}
+.tdActions .action-content {
+  margin-left: -8px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.tdActions .action-message_display {
+  display: inline;
+}
+.tdActions .action-notification {
+  padding: 10px 15px 5px 44px;
+  text-align: left;
+  background: url(https://www.paypalobjects.com/images/shared/icon_alert_sprite-2x.png) no-repeat;
+  background-size: 20px;
+}
+.tdActions .action-notification_critical {
+  background-position: left 12px top -391px;
+}
+.tdActions .action-notification_success {
+  background-position: left 12px top 11px;
+}
+.tdActions .add_bank-message {
+  padding-left: 45px;
+  margin-top: -15px;
+}
+.tdActions .action-currencyIcon {
+  cursor: default;
+  display: table-cell;
+  width: 42px;
+  text-align: center;
+  font-weight: bold;
+  color: #9da3a6;
+  border-radius: 5px 0 0 5px;
+  font-family: inherit;
+  vertical-align: middle;
+}
+.tdActions .action-button {
+  white-space: nowrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  height: 42px;
+  min-width: 200px;
+}
+@media (max-width: 768px) {
+  .tdActions .action-button {
+    width: 100%;
+  }
+}
+.tdActions .accept-txn_currency {
+  color: #0070ba;
+  border-color: #0070ba;
+}
+.tdActions .action-input {
+  margin-bottom: 15px;
+}
+.tdActions .action-separator {
+  border: 0;
+  height: 1px;
+  background: #6c7378;
+  margin: 15px 0 20px 0;
+}
+@media (max-width: 768px) {
+  .tdActions .cross-currency-actions .vx_btn + .vx_btn {
+    margin-left: 0;
+  }
+}
+.gift:hover {
+  text-decoration: none;
+}
+.gift .giftTheme-image {
+  margin: 15px 0 15px 0;
+  display: block;
+  width: 80%;
+  text-align: center;
+  height: 65px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 22px;
+  transition: transfrom 200ms ease;
+  -webkit-transition: transfrom 200ms ease;
+}
+.confirmReceiptBtn {
+  margin-top: 15px;
+}
+/* don't show spinner for input type number */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/**
+ * @fileOverview Styles for the activity section and activity module of summary page
+ * @name activityModule
+ * Corresponding Dust file is public/templates/widgets/activityModule.dust
+ * @author tsullivan
+ * @tested Chrome, Firefox, Safari, IE9, IOS6
+ */
+/* Alternating table row colors */
+.activityModule {
+  max-width: 1024px;
+  margin: 1em auto 2em;
+  padding: 1.25em 1em 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+@media (max-width: 768px) {
+  .activityModule {
+    margin: 2em auto 2em;
+  }
+}
+.activityModule .moduleHeader {
+  margin-top: 0;
+  border: 0;
+  padding-bottom: 0;
+}
+.activityModule .isCanceled {
+  text-decoration: line-through;
+}
+.summarySection .activityModule {
+  margin-top: 2em;
+}
+.withStatements {
+  display: inline-block;
+}
+.downloads {
+  margin-left: 3em;
+  display: inline-block;
+  color: #0666b3;
+}
+.transactionList,
+.installmentList {
+  margin: auto;
+  max-width: 1024px;
+}
+.transactionCollection.hasSpinner:before {
+  position: fixed;
+}
+.transactionRow:nth-child(odd),
+.installmentRow:nth-child(odd) {
+  background-color: #f8f8f8;
+  border-left-color: #f8f8f8;
+}
+.isCurrencyConversion {
+  width: 14px;
+  height: 11px;
+  background-repeat: no-repeat;
+  /* Hide the text. */
+  display: inline-block;
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.currencyCode {
+  display: block;
+  line-height: 0;
+  padding-top: 0.5em;
+}
+.currencyCodeInline {
+  display: inline;
+  line-height: 0;
+  padding-top: 0.5em;
+}
+.merchantCategory {
+  line-height: 0;
+  padding-top: 0.5em;
+  text-align: left;
+}
+.merchantCategory-empty {
+  text-align: center;
+}
+.transactionAmount {
+  /*! @noflip */
+  direction: ltr;
+}
+.transactionRow,
+.installmentRow {
+  position: relative;
+  border-left: 4px solid #ffffff;
+  margin-left: -4px;
+  background-color: #ffffff;
+}
+.transactionRow:nth-child(odd),
+.installmentRow:nth-child(odd),
+.transactionRow.year-title:nth-child(odd),
+.installmentRow.year-title:nth-child(odd) {
+  border-left-color: #f5f7fa;
+  background-color: #f5f7fa;
+}
+.transactionRow:nth-child(odd) .transactionAmount,
+.installmentRow:nth-child(odd) .transactionAmount,
+.transactionRow.year-title:nth-child(odd) .transactionAmount,
+.installmentRow.year-title:nth-child(odd) .transactionAmount,
+.transactionRow:nth-child(odd) .installmentSummary .balance,
+.installmentRow:nth-child(odd) .installmentSummary .balance,
+.transactionRow.year-title:nth-child(odd) .installmentSummary .balance,
+.installmentRow.year-title:nth-child(odd) .installmentSummary .balance {
+  background-color: #f5f7fa;
+}
+.transactionRow.hasSpinner:before,
+.installmentRow.hasSpinner:before {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: 55%;
+}
+.transactionRow.hasSpinner:after,
+.installmentRow.hasSpinner:after {
+  position: absolute;
+}
+.transactionRow:nth-child(even) .transactionAmount,
+.installmentRow:nth-child(even) .transactionAmount,
+.transactionRow.year-title:nth-child(even) .transactionAmount,
+.installmentRow.year-title:nth-child(even) .transactionAmount,
+.transactionRow:nth-child(even) .installmentSummary .balance,
+.installmentRow:nth-child(even) .installmentSummary .balance,
+.transactionRow.year-title:nth-child(even) .installmentSummary .balance,
+.installmentRow.year-title:nth-child(even) .installmentSummary .balance {
+  background-color: #ffffff;
+  /* This creates the subtle fade for text trunctation */
+}
+.transactionRow:nth-child(even) .transactionAmount:before,
+.installmentRow:nth-child(even) .transactionAmount:before,
+.transactionRow.year-title:nth-child(even) .transactionAmount:before,
+.installmentRow.year-title:nth-child(even) .transactionAmount:before,
+.transactionRow:nth-child(even) .installmentSummary .balance:before,
+.installmentRow:nth-child(even) .installmentSummary .balance:before,
+.transactionRow.year-title:nth-child(even) .installmentSummary .balance:before,
+.installmentRow.year-title:nth-child(even) .installmentSummary .balance:before {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#ffffff));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+}
+.year-title .span1 {
+  padding: 1em;
+  text-align: center;
+}
+.transactionRow,
+.installmentRow {
+  min-height: 4em;
+  display: block;
+}
+.transactionRow:last-child,
+.installmentRow:last-child {
+  border-bottom: none;
+}
+.transactionRow .transactionDescriptionContainer,
+.installmentRow .transactionDescriptionContainer {
+  text-decoration: none;
+  padding-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+}
+.transactionRow .transactionDescriptionContainer:focus,
+.installmentRow .transactionDescriptionContainer:focus {
+  text-decoration: underline;
+}
+.transactionRow .transactionDescriptionContainer:active,
+.installmentRow .transactionDescriptionContainer:active {
+  text-decoration: none;
+}
+.transactionRow .transactionDescription,
+.installmentRow .transactionDescription,
+.transactionRow .installmentSummary .creditPlanDescription,
+.installmentRow .installmentSummary .creditPlanDescription {
+  padding-top: 0.9em;
+  line-height: 1.5em;
+}
+.transactionRow .transactionAmount,
+.installmentRow .transactionAmount,
+.transactionRow .installmentSummary .balance,
+.installmentRow .installmentSummary .balance {
+  line-height: 1rem;
+  margin-top: 0.5em;
+  padding-top: 0.4em;
+  height: 50%;
+}
+.transactionRow .transactionAmount.primaryCurrency,
+.installmentRow .transactionAmount.primaryCurrency,
+.transactionRow .installmentSummary .balance.primaryCurrency,
+.installmentRow .installmentSummary .balance.primaryCurrency {
+  margin-top: 0.45em;
+}
+.transactionRow .transactionAmount.currencyConversion,
+.installmentRow .transactionAmount.currencyConversion,
+.transactionRow .installmentSummary .balance.currencyConversion,
+.installmentRow .installmentSummary .balance.currencyConversion {
+  padding-top: 1em;
+}
+.transactionRow .transactionAmount.currencyConversion .currencyCode,
+.installmentRow .transactionAmount.currencyConversion .currencyCode,
+.transactionRow .installmentSummary .balance.currencyConversion .currencyCode,
+.installmentRow .installmentSummary .balance.currencyConversion .currencyCode {
+  padding-top: 0.75em;
+}
+.transactionRow .transactionAmount .currencyCode,
+.installmentRow .transactionAmount .currencyCode,
+.transactionRow .installmentSummary .balance .currencyCode,
+.installmentRow .installmentSummary .balance .currencyCode {
+  padding-top: 0.3em;
+  font-family: 'PayPal-Sans', sans-serif;
+}
+.transactionRow .actions,
+.installmentRow .actions {
+  float: right;
+}
+.transactionRow .transactionType,
+.installmentRow .transactionType,
+.transactionRow .installmentSummary .creditPlanType,
+.installmentRow .installmentSummary .creditPlanType {
+  display: block;
+  padding-top: 0.02em;
+  color: #2c2e2f;
+}
+.transactionRow .creditPlan-balance,
+.installmentRow .creditPlan-balance {
+  color: #6c7378;
+}
+.transactionRow .transactionType,
+.installmentRow .transactionType {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 640px) {
+  .transactionRow .transactionType,
+  .installmentRow .transactionType {
+    width: 96%;
+  }
+}
+.transactionRow .transactionType-principal,
+.installmentRow .transactionType-principal {
+  display: block;
+  color: #6c7378;
+}
+.transactionRow.year-title,
+.installmentRow.year-title {
+  /* adjust the min-height to 2/3 the height of the transactionRow and vertically center the content */
+  min-height: 2.66em;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 2.66em;
+}
+.transactionRow.year-title .span1,
+.installmentRow.year-title .span1 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.giftIcon {
+  color: #0070ba;
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+}
+.transactionRowHover:hover,
+.installmentRow:not(.isInactive):hover {
+  background-color: #eeeeee;
+  border-left-color: #009cde;
+}
+.transactionRowHover:hover .transactionDetailsContainer .transactionAmount,
+.installmentRow:not(.isInactive):hover .transactionDetailsContainer .transactionAmount,
+.transactionRowHover:hover .installmentSummary .balance,
+.installmentRow:not(.isInactive):hover .installmentSummary .balance {
+  background-color: #eeeeee;
+  /* This creates the subtle fade for text trunctation */
+}
+.transactionRowHover:hover .transactionDetailsContainer .transactionAmount:before,
+.installmentRow:not(.isInactive):hover .transactionDetailsContainer .transactionAmount:before,
+.transactionRowHover:hover .installmentSummary .balance:before,
+.installmentRow:not(.isInactive):hover .installmentSummary .balance:before {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 238, 238, 0)), to(#eeeeee));
+  background-image: -webkit-linear-gradient(left, rgba(238, 238, 238, 0), #eeeeee);
+  background-image: -moz-linear-gradient(left, rgba(238, 238, 238, 0), #eeeeee);
+  background-image: -ms-linear-gradient(left, rgba(238, 238, 238, 0), #eeeeee);
+  background-image: -o-linear-gradient(left, rgba(238, 238, 238, 0), #eeeeee);
+  background-image: linear-gradient(to right, rgba(238, 238, 238, 0), #eeeeee);
+}
+.transactionItem {
+  padding: 0 0 0.55em;
+}
+.dateParts {
+  display: block;
+  padding-top: 0.9em;
+}
+.dateDay,
+.dateMonth {
+  display: block;
+  text-align: center;
+  line-height: 1.1em;
+  color: #2c2e2f;
+}
+.dateMonth {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.transactionDetailsContainer {
+  position: relative;
+}
+/* Inline actions */
+.transactionDetailsContainer .action,
+.detailedTable-transactionItem_actions .action,
+.transactionDetailsContainer .action-highlight,
+.detailedTable-transactionItem_actions .action-highlight {
+  margin-bottom: 0.175em;
+  margin-top: 0.175em;
+  margin-left: -0.25em;
+}
+.transactionDetailsContainer .action .icon,
+.detailedTable-transactionItem_actions .action .icon,
+.transactionDetailsContainer .action-highlight .icon,
+.detailedTable-transactionItem_actions .action-highlight .icon {
+  color: #9da3a6;
+}
+.transactionDetailsContainer .action a,
+.detailedTable-transactionItem_actions .action a,
+.transactionDetailsContainer .action-highlight a,
+.detailedTable-transactionItem_actions .action-highlight a {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0.82em 0 0.4em;
+  border-right: 1px solid #2c2e2f;
+  white-space: nowrap;
+}
+.transactionDetailsContainer .action a:first-of-type,
+.detailedTable-transactionItem_actions .action a:first-of-type,
+.transactionDetailsContainer .action-highlight a:first-of-type,
+.detailedTable-transactionItem_actions .action-highlight a:first-of-type {
+  padding-left: 0.2em;
+}
+.transactionDetailsContainer .action a:last-of-type,
+.detailedTable-transactionItem_actions .action a:last-of-type,
+.transactionDetailsContainer .action-highlight a:last-of-type,
+.detailedTable-transactionItem_actions .action-highlight a:last-of-type {
+  border-right: none;
+}
+.transactionDetailsContainer .action-highlight .icon,
+.detailedTable-transactionItem_actions .action-highlight .icon {
+  color: #ff9600;
+}
+.transactionDescription {
+  font-weight: 400;
+}
+.transactionDescription,
+.transactionAmount,
+.installmentSummary .creditPlanDescription,
+.installmentSummary .balance {
+  color: #2c2e2f;
+}
+.transactionDescription,
+.installmentSummary .creditPlanDescription {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.transactionAmount,
+.installmentSummary .balance {
+  position: absolute;
+  right: 0.7em;
+  top: 0;
+  padding-right: 1.2em;
+  text-align: right;
+  /* Create pseudoelement for the text trancation fading */
+}
+.transactionAmount:before,
+.installmentSummary .balance:before {
+  content: '';
+  width: 2em;
+  height: 98%;
+  /* < 100% prevents triggering scrollbar */
+  position: absolute;
+  left: -2em;
+  top: 0;
+  z-index: 0;
+}
+.transactionAmount .netAmount,
+.installmentSummary .balance .netAmount {
+  color: #2c2e2f;
+}
+.transactionAmount .balanceAmount,
+.installmentSummary .balance .balanceAmount {
+  display: block;
+  color: #2c2e2f;
+}
+/**
+ * @fileOverview Responsive styles for the activity section and activity module of summary page
+ * @name responsive-activityModule
+ * Corresponding Dust file is public/templates/widgets/activityModule.dust
+ * @author tsullivan
+ * @tested Chrome, Firefox, Safari, IE9, IOS6
+ */
+/* phone portrait */
+@media (max-width: 640px) {
+  .row-fluid .transactionAmount,
+  .row-fluid .installmentSummary .balance {
+    margin-left: 1em;
+    padding-left: 0.35em;
+    padding-right: 0;
+  }
+  .activityModuleContainer {
+    padding: 0;
+  }
+  .activityModule {
+    padding: 1.25em 1.75em 0.5em 1.5em;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  .activityModule .transactionItem,
+  .activityModule .installmentRow .creditPlan {
+    padding: 0 1.4em 0.55em 1.5em;
+  }
+  .activityModule .dateParts {
+    padding-top: 1.05em;
+  }
+  .activityModule .dateParts .dateDay {
+    min-width: inherit;
+  }
+  .activityModule.none {
+    padding: 1.25em 1.5em 0;
+  }
+  .activityModule.none .moduleHeader {
+    padding: 0 0 0.5em;
+  }
+  .transactionRow .dropdown-toggle,
+  .installmentRow .dropdown-toggle {
+    margin-right: 0.5em;
+  }
+  .transactionRow .transactionAmount.primaryCurrency,
+  .installmentRow .transactionAmount.primaryCurrency {
+    padding-top: 0.65em;
+    height: 85%;
+  }
+  .transactionRow .transactionAmount.currencyConversion,
+  .installmentRow .transactionAmount.currencyConversion {
+    padding-top: 1em;
+    height: 80%;
+  }
+  .transactionAmount,
+  .installmentSummary .balance {
+    padding-right: 1em;
+    right: 0;
+  }
+  .counterparty {
+    font-size: 0.8em;
+    font-size: 0.875rem;
+    line-height: 1.5em;
+  }
+  .dateParts,
+  .transactionAmount,
+  .installmentSummary .balance {
+    font-size: 0.6857142857142857em;
+    font-size: 0.75rem;
+    line-height: 1.75em;
+    line-height: 1.5em;
+    /* preserve baseline alignment with payment status */
+  }
+  .transactionDetailsContainer {
+    padding-left: 1.5em;
+  }
+  .transactionDetailsContainer .action,
+  .transactionDetailsContainer .action-highlight {
+    padding-left: 0;
+    background: none !important;
+    position: relative;
+    z-index: 5;
+  }
+  .transactionDetailsContainer .action a:first-of-type,
+  .transactionDetailsContainer .action-highlight a:first-of-type {
+    padding-left: 0;
+  }
+}
+/**
+ * @fileOverview Styles that utilize base64 images for non-retina screens
+ * @name nonretina-activityModule.less
+ * @author tsullivan
+ * @tested browsers Chrome, IOS6
+ */
+.activityModule .isCurrencyConversion {
+  height: 11px;
+  width: 13px;
+  padding-bottom: 1px;
+  background-clip: content-box;
+  background-image: url(https://www.paypalobjects.com/webstatic/i/sprite/sprite_summary.png);
+  background-position: -316px 0;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /**
+ * @fileOverview Styles that utilize base64 images for retina screens
+ * @name retina-activityModule.less
+ * @author tsullivan
+ * @tested browsers Chrome, IOS6
+ */
+  .activityModule .isCurrencyConversion {
+    background-image: url(https://www.paypalobjects.com/webstatic/i/sprite/sprite_summary_2x.png);
+    background-size: 329px 206px;
+  }
+}
+/**
+ * Detailed View styles
+ */
+.detailedModule .moduleHeader {
+  margin-bottom: 0.2em;
+}
+.detailedTable {
+  width: 100%;
+}
+.detailedTable caption {
+  padding: 1.25em 0 0 1.5em;
+  background: #ffffff;
+  line-height: 0;
+  text-align: left;
+}
+.detailedTable thead th {
+  padding: 1em 0.9em;
+  font-weight: 500;
+  border-top: 1px solid #dddddd;
+  color: #2c2e2f;
+}
+.detailedTable tbody th {
+  font-weight: normal;
+}
+.detailedView.hasSpinner:before {
+  width: 24px;
+  height: 24px;
+  top: 55%;
+}
+.detailedView.hasSpinner:after {
+  position: absolute;
+}
+.detailedTable tbody:nth-child(odd) tr {
+  background-color: #ffffff;
+}
+.detailedTable tbody:nth-child(even) tr {
+  background-color: #f5f7fa;
+}
+.detailedTable-transactionItem_row,
+.detailedTable-transactionItem_actions {
+  border-left: 4px solid transparent;
+}
+.detailedTable-transactionItem:hover .detailedTable-transactionItem_row,
+.detailedTable-transactionItem:hover .detailedTable-transactionItem_actions {
+  background-color: #eeeeee;
+  border-left-color: #009cde;
+  cursor: pointer;
+}
+.detailedTable-transactionColumn_date.detailedTable-transactionColumn_date {
+  width: 6.5%;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 0.563em;
+}
+.detailedTable-transactionColumn_desc {
+  width: 25%;
+  text-align: left;
+}
+.detailedTable-transactionColumn_type {
+  width: 20%;
+  text-align: left;
+}
+.detailedTable-transactionColumn_gross,
+.detailedTable-transactionColumn_fee,
+.detailedTable-transactionColumn_net,
+.detailedTable-transactionColumn_balance {
+  width: 12%;
+  white-space: nowrap;
+  text-align: right;
+}
+.detailedTable-transactionColumn_desc.with-category {
+  width: 25%;
+  text-align: left;
+}
+.detailedTable-transactionColumn_category {
+  text-align: left;
+}
+.detailedTable-transactionColumn_gross.with-category,
+.detailedTable-transactionColumn_fee.with-category,
+.detailedTable-transactionColumn_net.with-category,
+.detailedTable-transactionColumn_balance.with-category {
+  width: 11%;
+  white-space: nowrap;
+  text-align: right;
+}
+.detailedTable-transactionColumn_desc a {
+  color: #2c2e2f;
+  text-decoration: none;
+  font-weight: 400;
+}
+.detailedTable-transactionColumn_desc a:focus {
+  text-decoration: underline;
+}
+.detailedTable-transactionColumn_desc a:active {
+  text-decoration: none;
+}
+.detailedTable-transactionColumn_date,
+.detailedTable-transactionItem_row td {
+  color: #2c2e2f;
+  vertical-align: top;
+  padding: 0.7em;
+}
+.detailedTable-transactionItem_row.hasActions th,
+.detailedTable-transactionItem_row.hasActions td {
+  padding-bottom: 0.2em;
+}
+.detailedTable-transactionItem_actions td {
+  padding: 0 0 0.5em 0.5em;
+}
+.detailedTable-transactionItem_actions a {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0.82em 0 0.4em;
+  border-right: 1px solid #2c2e2f;
+  white-space: nowrap;
+}
+.detailedTable-transactionItem_actions a:first-of-type {
+  padding-left: 0.2em;
+}
+.detailedTable-transactionItem_actions a:last-of-type {
+  border-right: none;
+}
+.detailedTable-transactionItem_actions .icon-small:before {
+  font-size: 1.58rem;
+}
+.detailedTable-transactionItem_details td {
+  padding: 0 0 0 2px;
+}
+.detailedTable-yearTitle th {
+  padding-left: 0.7em;
+  line-height: 2.66em;
+  min-height: 2.66em;
+  text-align: left;
+}
+.activityModule-error .icon-critical-small:before {
+  color: #c72b2d;
+}
+.banner-notification--container + .navbar {
+  margin-bottom: 0;
+  position: static;
+}
+.banner-notification--container ~ .contents > .summaryContainer {
+  padding-top: 0;
+}
+.banner-notification--content {
+  width: 100%;
+  margin: 0 0 9px 0;
+  overflow: hidden;
+  background-color: #ffd571;
+  color: #2c2e2f;
+}
+.banner-notification--table {
+  display: table;
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.72em 2.5em;
+}
+.banner-notification--table .icon {
+  display: table-cell;
+  width: 1.5em;
+  font-size: 1.5em;
+}
+.banner-notification--table > p {
+  display: table-cell;
+  line-height: 1.5em;
+}
+.date-picker {
+  color: #303030;
+  line-height: 25px;
+  width: 170px;
+  height: 25px;
+  padding: 0;
+  border: 0;
+  padding-left: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  font-size: 12px;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: normal;
+}
+.month-wrapper {
+  color: #303030;
+  font-size: 15px;
+  font-family: 'PayPal-Sans', sans-serif;
+  font-weight: normal;
+}
+.date-picker-wrapper {
+  display: flex;
+  overflow: auto;
+  z-index: 1;
+  border: 1px solid #0070ba;
+  background-color: #ffffff;
+  font-size: 12px;
+  font-family: 'PayPal-Sans', sans-serif;
+  box-sizing: initial;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-width: 400px;
+  flex: auto;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .date-picker-wrapper {
+    min-width: 630px;
+  }
+}
+@media (max-width: 640px) {
+  .date-picker-wrapper {
+    border-width: 0;
+    background-color: #ffffff;
+    margin: 0 auto;
+  }
+}
+.date-picker-box-tip,
+.date-picker-box-tip:after {
+  bottom: 100%;
+  /*! @noflip */
+  left: 12%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .date-picker-box-tip,
+  .date-picker-box-tip:after {
+    display: none;
+  }
+}
+.date-picker-box-tip:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 22px;
+  /*! @noflip */
+  margin-left: -22px;
+  margin-bottom: -23px;
+}
+.date-picker-box-tip {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #0070ba;
+  border-width: 22px;
+  /*! @noflip */
+  margin-left: -11px;
+}
+.date-picker-wrapper.inline-wrapper {
+  position: relative;
+  box-shadow: none;
+  display: block;
+}
+.date-picker-wrapper.single-date {
+  width: auto;
+}
+.date-picker-wrapper .footer {
+  font-size: 11px;
+  padding-top: 15px;
+  float: left;
+  min-width: 150px;
+  flex-grow: 1;
+}
+@media (max-width: 640px) {
+  .date-picker-wrapper .footer {
+    float: none;
+  }
+}
+.date-picker-wrapper .footer .shortcuts {
+  padding: 20px 15px 20px 15px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .date-picker-wrapper .footer .shortcuts {
+    padding: 0px 15px 20px 15px;
+  }
+}
+.date-picker-wrapper .footer .shortcuts span {
+  position: relative;
+  display: block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  margin: 20px 0;
+}
+.date-picker-wrapper .footer .shortcuts span a {
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #ECECEC;
+  padding: 0 10px 0 10px;
+  border-radius: 25px;
+}
+.date-picker-wrapper .footer .shortcuts span a.active,
+.date-picker-wrapper .footer .shortcuts span a:hover {
+  background-color: #0070ba;
+  color: #ffffff;
+}
+.date-picker-wrapper b,
+.month-wrapper b {
+  color: #2c2e2f;
+  font-weight: 700;
+  display: none;
+}
+.date-picker-wrapper a,
+.month-wrapper a {
+  font-weight: 400;
+  font-size: 14px;
+  color: #6C737B;
+}
+.date-picker-wrapper a:hover,
+.month-wrapper a:hover {
+  text-decoration: none;
+}
+.month-wrapper .month-name {
+  font-family: 'PayPal-Sans', sans-serif;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 20px;
+  color: #2c2e2f;
+}
+.month-wrapper .month-name span:hover {
+  cursor: pointer;
+  color: #009cde;
+}
+.month-wrapper {
+  background-color: #ffffff;
+  cursor: default;
+  position: relative;
+  float: left;
+  border-right: solid 1px #d5dade;
+  padding: 15px;
+  border-radius: 5px 0 0 5px;
+}
+@media (max-width: 640px) {
+  .month-wrapper {
+    border-right-width: 0;
+    float: none;
+    margin: 0 auto;
+  }
+}
+.month-wrapper table {
+  width: 190px;
+  float: left;
+  min-width: 230px;
+}
+@media (max-width: 640px) {
+  .month-wrapper table {
+    float: none;
+  }
+}
+.month-wrapper table.month2 {
+  width: 190px;
+  float: left;
+}
+@media (max-width: 640px) {
+  .month-wrapper table.month2 {
+    float: none;
+  }
+}
+.month-wrapper table th,
+.month-wrapper table td {
+  vertical-align: middle;
+  text-align: center;
+  width: 34px;
+  height: 30px;
+  margin: 0px;
+  padding: 0px 0px 12px 0px;
+  font-weight: normal;
+}
+.month-wrapper table .day {
+  position: relative;
+  box-sizing: border-box;
+  height: 34px;
+  width: 44px;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  padding: 7px 0 3px;
+  font-size: 15px;
+  margin-bottom: 1px;
+  cursor: default;
+  font-weight: 400;
+}
+.month-wrapper table .day:after,
+.month-wrapper table .day:before {
+  box-sizing: border-box;
+  padding: 7px 0 3px;
+  font-size: 15px;
+  margin-bottom: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  content: attr(data-day);
+}
+.month-wrapper table div.day.lastMonth,
+.month-wrapper table div.day.nextMonth {
+  color: #999;
+  cursor: default;
+}
+.month-wrapper table .day.rightEdge:before {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.month-wrapper table .day.leftEdge:before {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.month-wrapper table .week-name {
+  height: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #9da3a6;
+}
+.month-wrapper table .day.has-tooltip {
+  cursor: help !important;
+}
+.date-picker-wrapper .time label {
+  white-space: nowrap;
+}
+.month-wrapper table .day.toMonth.valid {
+  color: #333;
+  cursor: pointer;
+  border-color: transparent;
+}
+.month-wrapper table .day.toMonth.checked {
+  border-color: #b3d4ea;
+}
+.month-wrapper table .day.toMonth.invalid {
+  color: #9da3a6;
+  border-color: transparent;
+}
+.month-wrapper table .day.toMonth.first-date-selected {
+  border-right-color: #b3d4ea;
+}
+.month-wrapper table .day.toMonth.checked.first-date-selected {
+  border-left-color: transparent;
+}
+.month-wrapper table .day.toMonth.last-date-selected {
+  border-right-color: transparent;
+}
+.month-wrapper table .day.toMonth.rightEdge {
+  border-right-color: transparent;
+}
+.month-wrapper table .day.toMonth.leftEdge {
+  border-left-color: transparent;
+}
+.month-wrapper table .day.nextMonth,
+.month-wrapper table .day.lastMonth {
+  display: none;
+}
+.month-wrapper table .day.toMonth.checked:before,
+.month-wrapper table .day.toMonth.hovering:before {
+  background: #b3d4ea;
+}
+.month-wrapper table .caption {
+  height: 40px;
+}
+.month-wrapper table .caption .prev-container,
+.month-wrapper table .caption .next-container {
+  width: 27px;
+  cursor: pointer;
+}
+.month-wrapper table .caption .next,
+.month-wrapper table .caption .prev {
+  padding: 4px 4px;
+  color: transparent;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+.month-wrapper table .caption .next {
+  background: url('https://www.paypalobjects.com/webstatic/walletweb-engagement/Activity/Right_Caret_Blue2x.png') no-repeat;
+  background-size: contain;
+  margin-left: 6px;
+}
+.month-wrapper table .caption .prev {
+  background: url('https://www.paypalobjects.com/webstatic/walletweb-engagement/Activity/Left_Caret_Blue2x.png') no-repeat;
+  background-size: contain;
+  margin-left: -12px;
+}
+.month-wrapper table .caption .next-container:hover .next,
+.month-wrapper table .caption .prev-container:hover .prev {
+  filter: none;
+  -webkit-filter: none;
+}
+.date-picker-wrapper .gap {
+  position: relative;
+  z-index: 1;
+  width: 15px;
+  height: 100%;
+  background-color: #d20000;
+  font-size: 0;
+  line-height: 0;
+  float: left;
+  top: -5px;
+  margin: 0 10px -10px;
+  visibility: hidden;
+  height: 0;
+}
+.date-picker-wrapper .gap .gap-lines {
+  height: 100%;
+  overflow: hidden;
+}
+.date-picker-wrapper .gap .gap-line {
+  height: 15px;
+  width: 15px;
+  position: relative;
+}
+.date-picker-wrapper .gap .gap-line .gap-1 {
+  z-index: 1;
+  height: 0;
+  border-left: 8px solid #ffffff;
+  border-top: 8px solid #f5f7fa;
+  border-bottom: 8px solid #f5f7fa;
+}
+.date-picker-wrapper .gap .gap-line .gap-2 {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  z-index: 2;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+}
+.date-picker-wrapper .gap .gap-line .gap-3 {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  z-index: 2;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+}
+.date-picker-wrapper .gap .gap-top-mask {
+  width: 6px;
+  height: 1px;
+  position: absolute;
+  top: -1px;
+  left: 1px;
+  background-color: #f5f7fa;
+  z-index: 3;
+}
+.date-picker-wrapper .gap .gap-bottom-mask {
+  width: 6px;
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  left: 7px;
+  background-color: #f5f7fa;
+  z-index: 3;
+}
+.date-picker-wrapper .selected-days {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar .error-top {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar .normal-top {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar .default-top {
+  display: block;
+}
+.date-picker-wrapper .drp_top-bar.error .default-top {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar.error .error-top {
+  display: block;
+  color: #d20000;
+}
+.date-picker-wrapper .drp_top-bar.normal .default-top {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar.normal .normal-top {
+  display: none;
+}
+.date-picker-wrapper .drp_top-bar .apply-btn {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  height: 17px;
+  width: 17px;
+  border: none;
+  background: url("https://www.paypalobjects.com/webstatic/walletweb-engagement/Activity/Close_X2.png") no-repeat;
+  background-size: 17px 17px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .date-picker-wrapper .drp_top-bar .apply-btn {
+    right: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .date-picker-wrapper .drp_top-bar .apply-btn {
+    display: none;
+  }
+}
+/*time styling*/
+.date-picker-wrapper .time {
+  position: relative;
+}
+.date-picker-wrapper.single-month .time {
+  display: none;
+}
+.date-picker-wrapper .time input[type=range] {
+  vertical-align: middle;
+  width: 129px;
+  padding: 0;
+  margin: 0;
+  height: 20px;
+}
+.date-picker-wrapper .time1,
+.time2 {
+  width: 180px;
+  padding: 0 5px;
+  text-align: center;
+}
+.date-picker-wrapper .time1 {
+  float: left;
+}
+.date-picker-wrapper .time2 {
+  float: right;
+}
+.date-picker-wrapper .hour,
+.minute {
+  text-align: right;
+}
+.date-picker-wrapper .hide {
+  display: none;
+}
+.month-wrapper .date-selected {
+  color: #ffffff !important;
+  font-weight: bold !important;
+  background: #ffffff !important;
+  position: relative;
+  z-index: 0;
+}
+.month-wrapper .date-selected:after {
+  content: attr(data-day);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: #0070ba;
+  z-index: 1;
+}
+.month-wrapper .first-date-selecting:before,
+.month-wrapper .first-date-selected:before {
+  background: #b3d4ea;
+  width: 50% !important;
+  left: 50% !important;
+  content: '';
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.month-wrapper .last-date-selecting:before,
+.month-wrapper .last-date-selected:before {
+  background: #b3d4ea;
+  width: 50% !important;
+  content: '';
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.month-wrapper .last-date-selected.first-date-selected:before {
+  visibility: hidden;
+}
+.month-wrapper table .day.last-date-selecting:after,
+.month-wrapper table .day.first-date-selecting:after,
+.month-wrapper table .day:hover:after {
+  background: #0070ba;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  border-radius: 20px;
+}
+.date-picker-wrapper .date-range-length-tip {
+  position: absolute;
+  margin-top: -4px;
+  margin-left: -8px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  display: none;
+  background-color: #ffd571;
+  padding: 0 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  -webkit-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  -moz-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  -ms-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  -o-filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+}
+.date-picker-wrapper .date-range-length-tip:after {
+  content: '';
+  position: absolute;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #ffd571;
+  left: 50%;
+  margin-left: -4px;
+  bottom: -4px;
+}
+.date-picker-wrapper.two-months.no-gap .month1 .next,
+.date-picker-wrapper.two-months.no-gap .month2 .prev {
+  display: none;
+}
+.date-picker-wrapper .week-number {
+  padding: 5px 0;
+  line-height: 1;
+  font-size: 12px;
+  margin-bottom: 1px;
+  color: #999;
+  cursor: pointer;
+}
+.date-picker-wrapper .week-number.week-number-selected {
+  color: #009cde;
+  font-weight: bold;
+}
+.loadMore-container {
+  margin-top: -10px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.loadMore-innerContainer {
+  position: relative;
+  top: 0.6em;
+}
+.spinner.loading {
+  padding-top: 5em;
+  margin-top: 8em;
+  position: relative;
+  text-align: center;
+  font-size: 1.5em;
+}
+.spinner.loading:before {
+  content: "";
+  height: 30px;
+  width: 30px;
+  margin: -15px auto auto -15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 6;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #2180c0 rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.2);
+  -webkit-animation: rotation 0.7s infinite linear;
+  -moz-animation: rotation 0.7s infinite linear;
+  -ms-animation: rotation 0.7s infinite linear;
+  animation: rotation 0.7s infinite linear;
+  border-radius: 100%;
+}
+.globalNav a,
+.globalNav a:visited {
+  color: #666666;
+}
+.globalNav a:hover,
+.globalNav a:focus,
+.globalNav a:active,
+.globalNav a.active {
+  color: #0092d1;
+}
+@media (max-width: 768px) {
+  .globalNav a,
+  .globalNav a:visited,
+  .globalNav a:hover,
+  .globalNav a:focus,
+  .globalNav a:active,
+  .globalNav a.active {
+    color: white;
+  }
+}

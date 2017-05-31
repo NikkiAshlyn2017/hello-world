@@ -1,0 +1,1 @@
+define(["backbone","model/giftCard"],function(e,t){"use strict";var n=e.Collection.extend({model:t,initialize:function(){},comparator:function(e){},parse:function(e,t){return e.cards},url:function(){return e.history.options.root+"money/giftcards"}});return new n});
